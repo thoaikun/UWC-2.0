@@ -1,0 +1,131 @@
+\section{Yêu cầu (Requirements)}
+    \subsection{Yêu cầu chức năng (Functional)}
+        \begin{enumerate}
+            \item \textbf{Nhân viên giám sát (Back officer)}
+            
+            \begin{tblr}{
+                width=1\linewidth,
+                hlines, 
+                vlines,
+                colspec={X[-1]X[4]X[7]},
+                columns = {valign = m, },
+                row{1} = {halign = c, valign = m, bg = lightgray, fg = black},
+            }
+                {\textbf{\#}} & \textbf{Chức năng} & {\textbf{Mô tả}} \\
+                1 & Xem thông tin cá nhân & Cho phép xem chi tiết thông tin cá nhân của công nhân.\\
+                2 & Xem lịch làm việc &  Xem lịch làm của từng công nhân.\\
+                3 & Xem phương tiện & Xem được thông tin của từng phương tiện, các thông số kỹ thuật như trọng lượng, lượng nhiên liệu tiêu thụ, tình trạng, ...\\
+                4 & Xem các điểm MCPs & Xem được thông tin các điểm MCPs, dung tích còn lại của nó.\\
+                5 & Phân công công việc & Nhân viên giám sát có thể phân công công việc cho từng công nhân bao gồm việc phân phương tiện, gán các điểm MCPs và tạo tuyến đường cho công nhân lái xe rác.\\
+                6 & Nhắn tin & Nhân viên giám sát có thể liên lạc với công nhân trong trường hợp bất ngờ xảy ra.\\
+                7 & Thay đổi mật khẩu & Cho phép thay đổi mật khẩu trong trường hợp mong muốn hoặc thay đổi mật khẩu và có phương án xác thực dự phòng trong trường hợp quên mật khẩu.\\
+                8 & Đăng nhập & Nhân viên giám sát đăng nhập vào tài khoản để sử dụng các tính năng.\\
+            \end{tblr}
+          
+            \item \textbf{Người quản lý (Administrator)}
+            
+            \begin{tblr}{
+                width=1\linewidth,
+                hlines, 
+                vlines,
+                colspec={X[-1]X[4]X[7]},
+                columns = {valign = m, },
+                row{1} = {halign = c, valign = m, bg = lightgray, fg = black},
+            }
+                {\textbf{\#}} & \textbf{Chức năng} & {\textbf{Mô tả}} \\
+                1 & Quản lý nhân viên & Cho phép tạo, sửa, xóa một nhân viên trong hệ thống.\\
+                2 & Quản lý phương tiện & Cho phép thêm, sửa, xóa một phương tiện trong hệ thống.\\
+                3 & Quản lý các MCPs & Cho phép thêm, sửa, xóa các MCPs.\\
+                4 & Thay đổi mật khẩu & Cho phép thay đổi mật khẩu trong trường hợp mong muốn hoặc thay đổi mật khẩu và có phương án xác thực dự phòng trong trường hợp quên mật khẩu.\\
+                5 & Đăng nhập & Quản lý đăng nhập vào tài khoản để sử dụng các tính năng.\\
+            \end{tblr}
+            
+            \newpage
+            \item \textbf{Công nhân (Janitor / Collector)}
+            
+            \begin{tblr}{
+                width=1\linewidth,
+                hlines, 
+                vlines,
+                colspec={X[-1]X[4]X[7]},
+                columns = {valign = m, },
+                row{1} = {halign = c, valign = m, bg = lightgray, fg = black},
+            }
+                {\textbf{\#}} & \textbf{Chức năng} & {\textbf{Mô tả}} \\
+                1 & Xem thông tin cá nhân & Cho phép xem chi tiết thông tin cá nhân của công nhân.\\
+                2 & Xem lịch làm việc & Cho phép công nhân xem lịch làm việc cụ thể trong từng ngày và tổng quát ở mỗi tuần.\\
+                3 & Check in / check out & Công nhân xác nhận công việc trong ngày và đánh dấu hoàn thành công việc mỗi ngày.\\
+                4 & Nhắn tin & Công nhân có thể liên lạc với văn phòng trong trường hợp bất ngờ xảy ra.\\
+                5 & Nhận thông báo & Nhận thông báo mỗi khi lịch làm việc được giao cũng như tình trạng của MCPs. \\
+                6 & Thay đổi mật khẩu & Cho phép thay đổi mật khẩu trong trường hợp mong muốn hoặc thay đổi mật khẩu và có phương án xác thực dự phòng trong trường hợp quên mật khẩu.\\
+                7 & Đăng nhập & Công nhân đăng nhập vào tài khoản để sử dụng các tính năng.\\
+            \end{tblr}
+        \end{enumerate}
+    
+    \subsection{Yêu cầu phi chức năng (Non-functional)}
+        \begin{enumerate}
+            \item \textbf{Thiết kế giao diện người dùng (UI design)}
+            
+            \begin{tblr}{
+                width=1\linewidth,
+                hlines, 
+                vlines,
+                colspec={X[-1]X[11]},
+                columns = {valign = m, },
+                row{1} = {halign = c, valign = m, bg = lightgray, fg = black},
+            }
+                {\textbf{\#}} & \textbf{Yêu cầu} \\
+                1 & Thông tin quan trọng nên được hiển thị trong một lần xem (không cần kéo xuống). \\
+                2 & Giao diện đơn giản. Có thể tự tìm hiểu cách sử dụng không cần hướng dẫn trong 15 phút. \\
+                3 & Giao diện hệ thống: tiếng Việt và tiếng Anh cho tương lai.\\
+            \end{tblr}
+            
+            \item \textbf{Hiệu suất (Performance)}
+            
+            \begin{tblr}{
+                width=1\linewidth,
+                hlines, 
+                vlines,
+                colspec={X[-1]X[11]},
+                columns = {valign = m, },
+                row{1} = {halign = c, valign = m, bg = lightgray, fg = black},
+            }
+                {\textbf{\#}} & \textbf{Yêu cầu} \\
+                1 & Xử lý thời gian thực với ít nhất 1000 MCPs trong thời điểm hiện tại và 10000 MCPs trong 5 năm tới.\\
+                2 & Sức chứa của MCPs cần được cập nhật mỗi 15 phút. \\
+                3 & Độ trễ giao tiếp thời gian thực ở dưới 1 giây. \\
+                4 & Thời gian gợi ý tuyến đường tối ưu dưới 10 giây. \\
+                5 & Thời gian lấy dữ liệu của công nhân dưới 5 giây. \\
+            \end{tblr}
+            
+            \newpage
+            \item \textbf{Tương thích (Compatibility)}
+            
+            \begin{tblr}{
+                width=1\linewidth,
+                hlines, 
+                vlines,
+                colspec={X[-1]X[11]},
+                columns = {valign = m, },
+                row{1} = {halign = c, valign = m, bg = lightgray, fg = black},
+            }
+                {\textbf{\#}} & \textbf{Yêu cầu} \\
+                1 & Có thể lấy và sử dụng dữ liệu cũ từ UWC 1.0.\\
+                2 & Hoạt động tương thích với UWC 1.0 \\
+            \end{tblr}
+            
+            \item \textbf{Nền tảng (Platform)}
+            
+            \begin{tblr}{
+                width=1\linewidth,
+                hlines, 
+                vlines,
+                colspec={X[-1]X[11]},
+                columns = {valign = m, },
+                row{1} = {halign = c, valign = m, bg = lightgray, fg = black},
+            }
+                {\textbf{\#}} & \textbf{Yêu cầu} \\
+                1 & Là ứng dụng web, có thể cải tiến cho ứng dụng di động trong tương lai. \\
+            \end{tblr}
+        \end{enumerate}
+    \newpage

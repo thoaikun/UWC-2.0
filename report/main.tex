@@ -1,31 +1,40 @@
 \documentclass[a4paper]{article}
-\usepackage[english]{babel}
-\usepackage[utf8]{vietnam}
 \usepackage{a4wide,amssymb,epsfig,latexsym,multicol,array,hhline,fancyhdr}
+\usepackage{vntex}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{mdframed}
 \usepackage{amsmath}
 \usepackage{lastpage}
 \usepackage[lined,boxed,commentsnumbered]{algorithm2e}
 \usepackage{enumerate}
 \usepackage{color}
+\usepackage[most]{tcolorbox}
 \usepackage{graphicx}							
-% Standard graphics package
 \usepackage{array}
+\usepackage{float}
 \usepackage{tabularx, caption}
 \usepackage{tabularray}
+\usepackage{colortbl}
 \usepackage{longtable}
 \usepackage{multirow}
 \usepackage{multicol}
 \usepackage{rotating}
 \usepackage{graphics}
-\usepackage[a4paper,left=2cm,right=2cm,top=1.8cm,bottom=2.8cm]{geometry}
+\usepackage{geometry}
 \usepackage{setspace}
 \usepackage{epsfig}
+\usepackage{wrapfig}
 \usepackage{tikz}
-\usetikzlibrary{arrows,snakes,backgrounds}
-\usepackage[unicode]{hyperref}
+\usepackage[most]{tcolorbox}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{setspace}
+\usepackage{subfiles}
+\usepackage{indentfirst}
 
-%can file puenc.def trong thu muc goc de option [unicode] tao ra bookmark bang tieng Viet
 \hypersetup{urlcolor=blue,linkcolor=black,citecolor=black,colorlinks=true} 
+\usetikzlibrary{arrows,snakes,backgrounds}
 
 \newtheorem{theorem}{{\bf Theorem}}
 \newtheorem{property}{{\bf Property}}
@@ -33,21 +42,22 @@
 \newtheorem{corollary}[proposition]{{\bf Corollary}}
 \newtheorem{lemma}[proposition]{{\bf Lemma}}
 
-\newcommand\tab[1][0.5cm]{\hspace*{#1}}
-
+\AtBeginDocument{\renewcommand*\contentsname{Nội dung}}
+\AtBeginDocument{\renewcommand*\refname{Tham khảo}}
 \setlength{\headheight}{40pt}
 \pagestyle{fancy}
-\fancyhead{} % clear all header fields
+
+\fancyhead{}
 \fancyhead[L]{
  \begin{tabular}{rl}
     \begin{picture}(25,15)(0,0)
-    \put(0,-8){\includegraphics[width=8mm, height=8mm]{images/hcmut.png}}
+    \put(0,-8){\includegraphics[width=8mm, height=8mm]{imgs/hcmut.png}}
     %\put(0,-8){\epsfig{width=10mm,figure=hcmut.eps}}
    \end{picture}&
 	%\includegraphics[width=8mm, height=8mm]{hcmut.png} & %
 	\begin{tabular}{l}
-		\textbf{\bf \ttfamily Ho Chi Minh City University of Technology, VNU-HCM}\\
-		\textbf{\bf \ttfamily Faculty of Computer Science \& Engineering}
+		\textbf{\bf \ttfamily Đại học Bách Khoa Thành phố Hồ Chí Minh}\\
+		\textbf{\bf \ttfamily Khoa Khoa học và Kỹ thuật Máy tính}
 	\end{tabular} 	
  \end{tabular}
 }
@@ -55,10 +65,12 @@
 	\begin{tabular}{l}
 		\tiny \bf \\
 		\tiny \bf 
-	\end{tabular}  }
-\fancyfoot{} % clear all footer fields
-\fancyfoot[L]{\scriptsize \ttfamily Đồ án tổng hợp- Hướng công nghệ phần mềm (CO3103), HK 221}
-\fancyfoot[R]{\scriptsize \ttfamily Page {\thepage}/\pageref{LastPage}}
+	\end{tabular} 
+}
+\fancyfoot{} 
+\fancyfoot[L]{\scriptsize \ttfamily Bài tập lớn môn Công nghệ phần mềm - Năm học 2022-2023}
+\fancyfoot[R]{\scriptsize \ttfamily Trang {\thepage}/\pageref{LastPage}}
+
 \renewcommand{\headrulewidth}{0.3pt}
 \renewcommand{\footrulewidth}{0.3pt}
 
@@ -77,20 +89,25 @@
 \newcommand*{\subsubsubsectionmark}[1]{}
 \makeatother
 
-\AtBeginDocument{\renewcommand*\contentsname{Nội dung}}
 
 \begin{document}
 
-\input{sections/title}
+	\input{section/title}
 
-\newpage
-\tableofcontents
+	\newpage
+	\tableofcontents
 
-\include{sections/requirement elicitation/main}
-\include{sections/use-case diagram/main}
-\include{sections/appropriate framework/main}
-\include{sections/mockup UI/main}
+	\newpage
+	\input{section/members}
 
-% \inlcude{sections/reference}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newpage
+	\include{section/task1/task1}
+	\include{section/task2/task2}
+	\include{section/task3/task3}
 
 \end{document}
+
