@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.29)  29 OCT 2022 12:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.29)  29 OCT 2022 14:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1316,7 +1316,7 @@ Package hyperref Info: Link coloring ON on input line 93.
 \openout4 = `main.out'.
 
  (./section/title.tex
-<imgs/hcmut.png, id=135, 220.4235pt x 220.6644pt>
+<imgs/hcmut.png, id=143, 220.4235pt x 220.6644pt>
 File: imgs/hcmut.png Graphic file (type png)
 <use imgs/hcmut.png>
 Package pdftex.def Info: imgs/hcmut.png  used on input line 12.
@@ -1414,7 +1414,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-<imgs/SDG.jpg, id=185, 1224.575pt x 688.5725pt>
+<imgs/SDG.jpg, id=196, 1224.575pt x 688.5725pt>
 File: imgs/SDG.jpg Graphic file (type jpg)
 <use imgs/SDG.jpg>
 Package pdftex.def Info: imgs/SDG.jpg  used on input line 7.
@@ -1449,7 +1449,7 @@ File: imgs/hcmut.png Graphic file (type png)
 Package pdftex.def Info: imgs/hcmut.png  used on input line 84.
 (pdftex.def)             Requested size: 22.76004pt x 22.76134pt.
  [5]
-<imgs/map.jpg, id=238, 770.88pt x 657.2053pt>
+<imgs/map.jpg, id=248, 770.88pt x 657.2053pt>
 File: imgs/map.jpg Graphic file (type jpg)
 <use imgs/map.jpg>
 Package pdftex.def Info: imgs/map.jpg  used on input line 87.
@@ -1545,7 +1545,7 @@ File: imgs/hcmut.png Graphic file (type png)
 Package pdftex.def Info: imgs/hcmut.png  used on input line 131.
 (pdftex.def)             Requested size: 22.76004pt x 22.76134pt.
  [12]) (./section/task1/use-case diagram/systemUCD.tex
-<imgs/use-case diagram/main_uc.png, id=308, 1551.7975pt x 1728.4575pt>
+<imgs/use-case diagram/main_uc.png, id=318, 1551.7975pt x 1728.4575pt>
 File: imgs/use-case diagram/main_uc.png Graphic file (type png)
 <use imgs/use-case diagram/main_uc.png>
 Package pdftex.def Info: imgs/use-case diagram/main_uc.png  used on input line 4.
@@ -1751,7 +1751,7 @@ File: imgs/hcmut.png Graphic file (type png)
 Package pdftex.def Info: imgs/hcmut.png  used on input line 304.
 (pdftex.def)             Requested size: 22.76004pt x 22.76134pt.
 [19]) (./section/task1/use-case diagram/assignTaskUCD.tex
-<imgs/use-case diagram/assignTask_uc.png, id=347, 1722.435pt x 991.705pt>
+<imgs/use-case diagram/assignTask_uc.png, id=357, 1722.435pt x 991.705pt>
 File: imgs/use-case diagram/assignTask_uc.png Graphic file (type png)
 <use imgs/use-case diagram/assignTask_uc.png>
 Package pdftex.def Info: imgs/use-case diagram/assignTask_uc.png  used on input line 4.
@@ -1849,7 +1849,7 @@ File: imgs/hcmut.png Graphic file (type png)
 Package pdftex.def Info: imgs/hcmut.png  used on input line 131.
 (pdftex.def)             Requested size: 22.76004pt x 22.76134pt.
 [22]) (./section/task1/use-case diagram/manageResourcesUCD.tex
-<imgs/use-case diagram/manageResources_uc.png, id=365, 1288.815pt x 1045.9075pt>
+<imgs/use-case diagram/manageResources_uc.png, id=375, 1288.815pt x 1045.9075pt>
 File: imgs/use-case diagram/manageResources_uc.png Graphic file (type png)
 <use imgs/use-case diagram/manageResources_uc.png>
 Package pdftex.def Info: imgs/use-case diagram/manageResources_uc.png  used on input line 4.
@@ -1923,7 +1923,7 @@ Package pdftex.def Info: imgs/hcmut.png  used on input line 108.
 \openout2 = `section/task2/task2.aux'.
 
  (./section/task2/task2.tex (./section/task2/task2.1.tex
-<imgs/activity diagram/activity diagram.png, id=384, 723.70375pt x 935.495pt>
+<imgs/activity diagram/activity diagram.png, id=394, 723.70375pt x 935.495pt>
 File: imgs/activity diagram/activity diagram.png Graphic file (type png)
 <use imgs/activity diagram/activity diagram.png>
 Package pdftex.def Info: imgs/activity diagram/activity diagram.png  used on input line 4.
@@ -1944,14 +1944,10 @@ Package pdftex.def Info: imgs/hcmut.png  used on input line 7.
  <./imgs/activity diagram/activity diagram.png>]) (./section/task2/task2.2.tex
 File: imgs/hcmut.png Graphic file (type png)
 <use imgs/hcmut.png>
-Package pdftex.def Info: imgs/hcmut.png  used on input line 37.
+Package pdftex.def Info: imgs/hcmut.png  used on input line 34.
 (pdftex.def)             Requested size: 22.76004pt x 22.76134pt.
  [27]
-Overfull \hbox (11.18074pt too wide) in paragraph at lines 37--38
-[]\T5/cmr/m/n/10 Controller nhªn l»nh, thüc hi»n l»nh Plan-Route(MCPs, ve-hi-cles) l¶n h» thèng RoutePlan-
- []
-
-<imgs/sequence diagram/Sequence Diagram 2.2.png, id=407, 793.96625pt x 869.2475pt>
+<imgs/sequence diagram/Sequence Diagram 2.2.png, id=417, 793.96625pt x 869.2475pt>
 File: imgs/sequence diagram/Sequence Diagram 2.2.png Graphic file (type png)
 <use imgs/sequence diagram/Sequence Diagram 2.2.png>
 Package pdftex.def Info: imgs/sequence diagram/Sequence Diagram 2.2.png  used on input line 60.
@@ -1960,27 +1956,22 @@ File: imgs/hcmut.png Graphic file (type png)
 <use imgs/hcmut.png>
 Package pdftex.def Info: imgs/hcmut.png  used on input line 63.
 (pdftex.def)             Requested size: 22.76004pt x 22.76134pt.
-[28]
+ [28]
 File: imgs/hcmut.png Graphic file (type png)
 <use imgs/hcmut.png>
 Package pdftex.def Info: imgs/hcmut.png  used on input line 64.
 (pdftex.def)             Requested size: 22.76004pt x 22.76134pt.
  [29 <./imgs/sequence diagram/Sequence Diagram 2.2.png>]) (./section/task2/task2.3.tex
-<imgs/class diagram/class diagram.png, id=423, 1255.69125pt x 943.525pt>
+<imgs/class diagram/class diagram.png, id=433, 1050.0831pt x 630.9171pt>
 File: imgs/class diagram/class diagram.png Graphic file (type png)
 <use imgs/class diagram/class diagram.png>
 Package pdftex.def Info: imgs/class diagram/class diagram.png  used on input line 4.
-(pdftex.def)             Requested size: 426.77611pt x 426.79947pt.
-
-Overfull \hbox (8.52243pt too wide) in paragraph at lines 4--5
- [][] 
- []
-
+(pdftex.def)             Requested size: 520.92236pt x 312.9803pt.
 File: imgs/hcmut.png Graphic file (type png)
 <use imgs/hcmut.png>
 Package pdftex.def Info: imgs/hcmut.png  used on input line 8.
 (pdftex.def)             Requested size: 22.76004pt x 22.76134pt.
-[30 <./imgs/class diagram/class diagram.png>]
+ [30 <./imgs/class diagram/class diagram.png>]
 File: imgs/hcmut.png Graphic file (type png)
 <use imgs/hcmut.png>
 Package pdftex.def Info: imgs/hcmut.png  used on input line 63.
@@ -1999,7 +1990,7 @@ Package pdftex.def Info: imgs/hcmut.png  used on input line 109.
 \openout2 = `section/task3/task3.aux'.
 
  (./section/task3/task3.tex (./section/task3/task3.1.tex
-<imgs/architecture design.png, id=459, 1065.9825pt x 1065.9825pt>
+<imgs/architecture design.png, id=469, 1065.9825pt x 1065.9825pt>
 File: imgs/architecture design.png Graphic file (type png)
 <use imgs/architecture design.png>
 Package pdftex.def Info: imgs/architecture design.png  used on input line 7.
@@ -2125,7 +2116,7 @@ Package pdftex.def Info: imgs/hcmut.png  used on input line 138.
 > Step: calculate cell and line sizes.
 > Step: build the whole table.
 ) (./section/task3/task3.2.tex
-<imgs/component diagram/component Task Assignment.png, id=483, 909.3975pt x 512.91624pt>
+<imgs/component diagram/component Task Assignment.png, id=493, 909.3975pt x 512.91624pt>
 File: imgs/component diagram/component Task Assignment.png Graphic file (type png)
 <use imgs/component diagram/component Task Assignment.png>
 Package pdftex.def Info: imgs/component diagram/component Task Assignment.png  used on input line 5.
@@ -2135,7 +2126,7 @@ File: imgs/hcmut.png Graphic file (type png)
 Package pdftex.def Info: imgs/hcmut.png  used on input line 14.
 (pdftex.def)             Requested size: 22.76004pt x 22.76134pt.
  [37 <./imgs/component diagram/component Task Assignment.png>]
-<imgs/Component diagram/Component planning route.png, id=495, 2336.73pt x 1067.99pt>
+<imgs/Component diagram/Component planning route.png, id=505, 2336.73pt x 1067.99pt>
 File: imgs/Component diagram/Component planning route.png Graphic file (type png)
 <use imgs/Component diagram/Component planning route.png>
 Package pdftex.def Info: imgs/Component diagram/Component planning route.png  used on input line 19.
@@ -2149,21 +2140,21 @@ Package pdftex.def Info: imgs/hcmut.png  used on input line 110.
 AED: lastpage setting LastPage
 (./main.aux (./section/task1/task1.aux) (./section/task2/task2.aux) (./section/task3/task3.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 6A56540B4D826BA1215037744A72A368;6411.
+(rerunfilecheck)             Checksum: 7095C28F5D1EF31A3938EAA127E16062;7079.
  ) 
 Here is how much of TeX's memory you used:
- 38515 strings out of 476514
- 799456 string characters out of 5817937
- 1277600 words of memory out of 5000000
- 58932 multiletter control sequences out of 15000+600000
+ 38519 strings out of 476514
+ 799516 string characters out of 5817937
+ 1277617 words of memory out of 5000000
+ 58934 multiletter control sequences out of 15000+600000
  528200 words of font info for 165 fonts, out of 8000000 for 9000
  264 hyphenation exceptions out of 8191
  90i,26n,108p,1029b,1126s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <c:/Users/Dumb Kiwi/.texlive2022/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk><c:/texlive/2022/texmf-dist/fonts/type1/vntex/vnr/vnbx10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/vntex/vnr/vnbx12.pfb><c:/texlive/2022/texmf-dist/fonts/type1/vntex/vnr/vnr10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/vntex/vnr/vnr8.pfb><c:/texlive/2022/texmf-dist/fonts/type1/vntex/vnr/vnti10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/vntex/vnr/vntt10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/vntex/vnr/vntt8.pfb>
-Output written on main.pdf (39 pages, 1218955 bytes).
+Output written on main.pdf (39 pages, 1388135 bytes).
 PDF statistics:
- 584 PDF objects out of 1000 (max. 8388607)
- 476 compressed objects within 5 object streams
- 176 named destinations out of 1000 (max. 500000)
- 401 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 594 PDF objects out of 1000 (max. 8388607)
+ 486 compressed objects within 5 object streams
+ 178 named destinations out of 1000 (max. 500000)
+ 417 words of extra memory for PDF output out of 10000 (max. 10000000)
 
