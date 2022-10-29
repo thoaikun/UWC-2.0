@@ -1,0 +1,23 @@
+\contentsline {section}{\numberline {1}Danh sách thành viên \& Khối lượng công việc}{2}{section.1}%
+\contentsline {section}{\numberline {2}Ngữ cảnh bài toán}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Mô tả chung}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Khảo sát thực tế}{3}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Xác định ngữ cảnh của dự án UWC 2.0}{7}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Các bên liên quan (Relevant Stakeholders)}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Những mong muốn của các bên liên quan}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Vấn đề các bên liên quan đang gặp phải}{8}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Lợi ích mà các bên liên quan có thể đạt được khi sử dụng hệ thống UWC 2.0}{9}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Yêu cầu (Requirements)}{10}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Yêu cầu chức năng (Functional)}{10}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Yêu cầu phi chức năng (Non-functional)}{11}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Use-case diagram}{13}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Tổng quát của hệ thống}{13}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Chức năng phân chia công việc (Task assignment)}{20}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Chức năng quản lý tài nguyên (Manage Resources)}{23}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Activity diagram giữa hệ thống và các bên liên quan trong Task Assignment Module}{26}{section.6}%
+\contentsline {section}{\numberline {7}Giải pháp ý niệm cho Task Route planning và Sequence diagram mô tả nó}{27}{section.7}%
+\contentsline {section}{\numberline {8}Class Diagram cho task assignment module}{30}{section.8}%
+\contentsline {section}{\numberline {9}Mô tả thiết kế kiến trúc để xây dựng hệ thống}{34}{section.9}%
+\contentsline {section}{\numberline {10}Component Diagram cho Task Assignment Module}{37}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Component Diagram Task Assignment}{37}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Component Diagram cho Planning Route }{38}{subsection.10.2}%
