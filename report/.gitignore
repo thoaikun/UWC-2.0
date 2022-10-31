@@ -1,0 +1,8 @@
+/*.toc
+/*.aux
+/section/**/*.aux
+/main.fdb_latexmk
+/main.out
+/main.fls
+/main.synctex.gz
+/main.log
