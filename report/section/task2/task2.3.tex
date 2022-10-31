@@ -1,126 +1,207 @@
 \section{Class Diagram cho task assignment module}
      \begin{figure}[h]
-        \centering
-        \includegraphics[width=15cm,height=15cm]{imgs/class diagram/class diagram.png}
-        \caption{Class diagram cho task assignment module}
-    \end{figure}
-
+                \centering
+                \includegraphics[width=17.0cm,height=15cm]{imgs/class diagram/UWC class diagram.png}
+                \caption{Class diagram cho task assignment module}
+            \end{figure}
     \newpage
-    -Có tất cả 6 class trong module trên gồm có:
+    -Có tất cả 10 class trong module trên gồm có:
     \begin{enumerate}
         \item Class Staff:
+
         \begin{table}[htp]
             \begin{tabular}{|lll|}
                 \hline
-                \multicolumn{1}{|l|}{Class Name} & \multicolumn{2}{l|}{Staff}                                     \\ \hline
-                \multicolumn{1}{|l|}{Inherit}    & \multicolumn{2}{l|}{None}                                      \\ \hline
-                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Attributes}                                          \\ \hline
-                \multicolumn{1}{|l|}{int}        & \multicolumn{1}{l|}{id}               & Số định danh nhân viên \\ \hline
-                \multicolumn{1}{|l|}{string}     & \multicolumn{1}{l|}{name}             & Tên nhân viên          \\ \hline
-                \multicolumn{1}{|l|}{string}     & \multicolumn{1}{l|}{password}         & Mật khẩu đăng nhập     \\ \hline
-                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Methods}                                             \\ \hline
-                \multicolumn{1}{|l|}{void}       & \multicolumn{1}{l|}{setName()}        & Đặt tên cho nhân viên  \\ \hline
-                \multicolumn{1}{|l|}{void}       & \multicolumn{1}{l|}{changePassword()} & Đổi mật khẩu           \\ \hline
-                \multicolumn{1}{|l|}{string}     & \multicolumn{1}{l|}{getName()}        & Lấy tên nhân viên      \\ \hline
-                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Relationships}                                       \\ \hline
-                \multicolumn{1}{|l|}{Manage}     & \multicolumn{2}{l|}{Quản lý thông tin các MCP}                 \\ \hline
+                \multicolumn{1}{|l|}{Class Name} & \multicolumn{2}{l|}{Staff}                               \\ \hline
+                \multicolumn{1}{|l|}{Inherit}    & \multicolumn{2}{l|}{None}                                \\ \hline
+                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Attributes}                                    \\ \hline
+                \multicolumn{1}{|l|}{int}        & \multicolumn{1}{l|}{id}        & Số định danh            \\ \hline
+                \multicolumn{1}{|l|}{string}     & \multicolumn{1}{l|}{name}      & Tên nhân viên           \\ \hline
+                \multicolumn{1}{|l|}{string}     & \multicolumn{1}{l|}{username}  & Tên đăng nhập           \\ \hline
+                \multicolumn{1}{|l|}{string}     & \multicolumn{1}{l|}{email}     & Email nhân viên         \\ \hline
+                \multicolumn{1}{|l|}{string}     & \multicolumn{1}{l|}{password}  & Mật khẩu                \\ \hline
+                \multicolumn{1}{|l|}{string}     & \multicolumn{1}{l|}{role}      & Vai trò                 \\ \hline
+                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Methods}                                       \\ \hline
+                \multicolumn{1}{|l|}{int}        & \multicolumn{1}{l|}{getId()}   & Lấy số định danh        \\ \hline
+                \multicolumn{1}{|l|}{string}     & \multicolumn{1}{l|}{getInfo()} & Lấy thông tin nhân viên \\ \hline
+                \multicolumn{1}{|l|}{string}     & \multicolumn{1}{l|}{getRole()} & Lấy thông tin vai trò   \\ \hline
+                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Relationships}                                 \\ \hline
             \end{tabular}
         \end{table}
                 
         \item Class Collector / Janitor:
+            
         \begin{table}[htp]
             \begin{tabular}{|lll|}
                 \hline
-                \multicolumn{1}{|l|}{Class Name} & \multicolumn{2}{l|}{Collector/Janitor}                              \\ \hline
-                \multicolumn{1}{|l|}{Inherit}    & \multicolumn{2}{l|}{Staff}                                          \\ \hline
-                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Attributes}                                               \\ \hline
-                \multicolumn{1}{|l|}{Task{[}{]}} & \multicolumn{1}{l|}{workingCalendar}      & Lịch làm việc           \\ \hline
-                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Methods}                                                  \\ \hline
-                \multicolumn{1}{|l|}{boolean}    & \multicolumn{1}{l|}{addTask()}            & Thêm task vào phần lịch \\ \hline
-                \multicolumn{1}{|l|}{Task{[}{]}} & \multicolumn{1}{l|}{getWorkingCalendar()} & Lấy, xem lịch làm việc  \\ \hline
-                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Relationships}                                            \\ \hline
-                \multicolumn{1}{|l|}{Do}         & \multicolumn{2}{l|}{Collector và Janitor thực hiện task}            \\ \hline
+                \multicolumn{1}{|l|}{Class Name}     & \multicolumn{2}{l|}{Collector/Janitor}                         \\ \hline
+                \multicolumn{1}{|l|}{Inherit}        & \multicolumn{2}{l|}{Staff}                                     \\ \hline
+                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Attributes}                                              \\ \hline
+                \multicolumn{1}{|l|}{Task{[}1..*{]}} & \multicolumn{1}{l|}{workCalendar}    & Lịch làm việc           \\ \hline
+                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Methods}                                                 \\ \hline
+                \multicolumn{1}{|l|}{boolean}        & \multicolumn{1}{l|}{isFree()}        & Kiểm tra thời gian rảnh \\ \hline
+                \multicolumn{1}{|l|}{Task{[}1..*{]}} & \multicolumn{1}{l|}{getCalendar()}   & Lấy lịch làm việc       \\ \hline
+                \multicolumn{1}{|l|}{Task}           & \multicolumn{1}{l|}{getDetailTask()} & Lấy task cụ thể         \\ \hline
+                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Relationships}                                           \\ \hline
             \end{tabular}
         \end{table}
             
         \item Class Back officer:
+        
         \begin{table}[htp]
             \begin{tabular}{|lll|}
                 \hline
-                \multicolumn{1}{|l|}{Class Name}  & \multicolumn{2}{l|}{Back officer}                                     \\ \hline
-                \multicolumn{1}{|l|}{Inherit}     & \multicolumn{2}{l|}{Staff}                                            \\ \hline
-                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Attributes}                                                  \\ \hline
-                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Methods}                                                     \\ \hline
-                \multicolumn{1}{|l|}{Task}        & \multicolumn{1}{l|}{createTask()} & Tạo task                          \\ \hline
-                \multicolumn{1}{|l|}{boolean}     & \multicolumn{1}{l|}{assignTask()} & Gán task cho collector và janitor \\ \hline
-                \multicolumn{1}{|l|}{void}        & \multicolumn{1}{l|}{planRoute()}  & Tạo tuyến đường                   \\ \hline
-                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Relationships}                                               \\ \hline
-                \multicolumn{1}{|l|}{Manage}      & \multicolumn{2}{l|}{Quản lý thông tin phương tiện}                    \\ \hline
-                \multicolumn{1}{|l|}{Composition} & \multicolumn{2}{l|}{Bao gồm task}                                     \\ \hline
+                \multicolumn{1}{|l|}{Class Name} & \multicolumn{2}{l|}{Back officer}                 \\ \hline
+                \multicolumn{1}{|l|}{Inherit}    & \multicolumn{2}{l|}{Staff}                        \\ \hline
+                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Attributes}                             \\ \hline
+                \multicolumn{1}{|l|}{DateTime}   & \multicolumn{1}{l|}{shift}      & Ca làm việc     \\ \hline
+                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Methods}                                \\ \hline
+                \multicolumn{1}{|l|}{DateTime}   & \multicolumn{1}{l|}{getShift()} & Lấy ca làm việc \\ \hline
+                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Relationships}                          \\ \hline
+                \multicolumn{1}{|l|}{control}    & \multicolumn{2}{l|}{Kiểm soát TaskController}     \\ \hline
             \end{tabular}
         \end{table}
-    
-        \newpage
             
+        \newpage
         \item Class Task:
+                
         \begin{table}[htp]
             \begin{tabular}{|lll|}
                 \hline
-                \multicolumn{1}{|l|}{Class Name} & \multicolumn{2}{l|}{Task}                                          \\ \hline
-                \multicolumn{1}{|l|}{Inherit}    & \multicolumn{2}{l|}{None}                                          \\ \hline
-                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Attributes}                                              \\ \hline
-                \multicolumn{1}{|l|}{MCP{[}{]}}  & \multicolumn{1}{l|}{points}        & Danh sách các MCP của task    \\ \hline
-                \multicolumn{1}{|l|}{DateTime}   & \multicolumn{1}{l|}{schedule}      & Thời gian làm cho task        \\ \hline
-                \multicolumn{1}{|l|}{Vehicle}    & \multicolumn{1}{l|}{vehicle}       & Phương tiện dùng cho task     \\ \hline
-                \multicolumn{1}{|l|}{Status}     & \multicolumn{1}{l|}{status}        & Trạng thái của task           \\ \hline
-                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Methods}                                                 \\ \hline
-                \multicolumn{1}{|l|}{boolean}    & \multicolumn{1}{l|}{checkIn()}     & check in task                 \\ \hline
-                \multicolumn{1}{|l|}{boolean}    & \multicolumn{1}{l|}{checkOut()}    & check out task                \\ \hline
-                \multicolumn{1}{|l|}{void}       & \multicolumn{1}{l|}{setPoints()}   & Đặt danh sách MCP cho task    \\ \hline
-                \multicolumn{1}{|l|}{void}       & \multicolumn{1}{l|}{setSchedule()} & Đặt lịch cho task             \\ \hline
-                \multicolumn{1}{|l|}{void}       & \multicolumn{1}{l|}{setVehicle()}  & Đặt phương tiện dùng cho task \\ \hline
-                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Relationships}                                           \\ \hline
-                \multicolumn{1}{|l|}{Has}        & \multicolumn{2}{l|}{Mang thông tin các MCP}                        \\ \hline
+                \multicolumn{1}{|l|}{Class Name}       & \multicolumn{2}{l|}{Task}                                   \\ \hline
+                \multicolumn{1}{|l|}{Inherit}          & \multicolumn{2}{l|}{None}                                   \\ \hline
+                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Attributes}                                             \\ \hline
+                \multicolumn{1}{|l|}{Route}            & \multicolumn{1}{l|}{route}       & Tuyến đường              \\ \hline
+                \multicolumn{1}{|l|}{DateTime}         & \multicolumn{1}{l|}{schedule}    & Thời gian làm task       \\ \hline
+                \multicolumn{1}{|l|}{Status}           & \multicolumn{1}{l|}{status}      & Trạng thái công việc     \\ \hline
+                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Methods}                                                \\ \hline
+                \multicolumn{1}{|l|}{string{[}{]}} & \multicolumn{1}{l|}{getPath()}   & Lấy đường đi             \\ \hline
+                \multicolumn{1}{|l|}{DateTime}         & \multicolumn{1}{l|}{getTime()}   & Lấy thời gian làm task   \\ \hline
+                \multicolumn{1}{|l|}{Status}           & \multicolumn{1}{l|}{getStatus()} & Lấy trạng thái công việc \\ \hline
+                \multicolumn{1}{|l|}{boolean}          & \multicolumn{1}{l|}{checkIn()}   & Check in task            \\ \hline
+                \multicolumn{1}{|l|}{boolean}          & \multicolumn{1}{l|}{checkOut()}  & Check out task           \\ \hline
+                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Relationships}                                          \\ \hline
+                \multicolumn{1}{|l|}{Has}              & \multicolumn{2}{l|}{Có chứa Route}                          \\ \hline
+                \multicolumn{1}{|l|}{Done by}          & \multicolumn{2}{l|}{Được làm bởi Collector/Janitor}         \\ \hline
             \end{tabular}
         \end{table}
             
             
         \item Class Vehicle:
+        
         \begin{table}[htp]
             \begin{tabular}{|lll|}
                 \hline
-                \multicolumn{1}{|l|}{Class Name} & \multicolumn{2}{l|}{Vehicle}                                                               \\ \hline
-                \multicolumn{1}{|l|}{Inherit}    & \multicolumn{2}{l|}{None}                                                                  \\ \hline
-                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Attributes}                                                                      \\ \hline
-                \multicolumn{1}{|l|}{int}        & \multicolumn{1}{l|}{id}              & Số định danh phương tiện                            \\ \hline
-                \multicolumn{1}{|l|}{string}     & \multicolumn{1}{l|}{type}            & Loại phương tiện                                    \\ \hline
-                \multicolumn{1}{|l|}{double}     & \multicolumn{1}{l|}{weight}          & Khối lượng phương tiện                              \\ \hline
-                \multicolumn{1}{|l|}{double}     & \multicolumn{1}{l|}{fuelConsumption} & Mức tiêu thụ nhiên liệu                             \\ \hline
-                \multicolumn{1}{|l|}{int}        & \multicolumn{1}{l|}{capacity}        & Sức chứa của phương tiện                            \\ \hline
-                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Methods}                                                                         \\ \hline
-                \multicolumn{1}{|l|}{boolean}    & \multicolumn{1}{l|}{isFree()}        & Kiểm tra phương tiện có đang được sử dụng hay không \\ \hline
-                \multicolumn{1}{|l|}{boolean}    & \multicolumn{1}{l|}{setInfo()}       & Đặt thông tin cho phương tiện                       \\ \hline
-                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Relationships}                                                                   \\ \hline
+                \multicolumn{1}{|l|}{Class Name} & \multicolumn{2}{l|}{Vehicle}                                            \\ \hline
+                \multicolumn{1}{|l|}{Inherit}    & \multicolumn{2}{l|}{None}                                               \\ \hline
+                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Attributes}                                                   \\ \hline
+                \multicolumn{1}{|l|}{int}        & \multicolumn{1}{l|}{id}                   & Số định danh                \\ \hline
+                \multicolumn{1}{|l|}{string}     & \multicolumn{1}{l|}{type}                 & Loại phương tiện            \\ \hline
+                \multicolumn{1}{|l|}{double}     & \multicolumn{1}{l|}{weight}               & Khối lượng phương tiện      \\ \hline
+                \multicolumn{1}{|l|}{double}     & \multicolumn{1}{l|}{capacity}             & Sức chứa                    \\ \hline
+                \multicolumn{1}{|l|}{double}     & \multicolumn{1}{l|}{fuelConsumption}      & Mức tiêu thụ nhiên liệu     \\ \hline
+                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Methods}                                                      \\ \hline
+                \multicolumn{1}{|l|}{int}        & \multicolumn{1}{l|}{getId()}              & Lấy số định danh            \\ \hline
+                \multicolumn{1}{|l|}{double}     & \multicolumn{1}{l|}{getCapacity()}        & Lấy sức chứa                \\ \hline
+                \multicolumn{1}{|l|}{double}     & \multicolumn{1}{l|}{getFuelConsumption()} & Lấy mức tiêu thụ nhiên liệu \\ \hline
+                \multicolumn{1}{|l|}{double}     & \multicolumn{1}{l|}{getWeight()}          & Lấy khối lượng              \\ \hline
+                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Relationships}                                                \\ \hline
+                \multicolumn{1}{|l|}{assigned}   & \multicolumn{2}{l|}{Gán tuyến đường cho phương tiện}                    \\ \hline
             \end{tabular}
         \end{table}
             
         \newpage
         \item Class MCP:
+            
         \begin{table}[htp]
             \begin{tabular}{|lll|}
                 \hline
-                \multicolumn{1}{|l|}{Class Name} & \multicolumn{2}{l|}{MCP}                                                            \\ \hline
-                \multicolumn{1}{|l|}{Inherit}    & \multicolumn{2}{l|}{None}                                                           \\ \hline
-                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Attributes}                                                               \\ \hline
-                \multicolumn{1}{|l|}{int}        & \multicolumn{1}{l|}{id}               & Số định danh cho MCP                        \\ \hline
-                \multicolumn{1}{|l|}{Address}    & \multicolumn{1}{l|}{address}          & Địa chỉ của MCP                             \\ \hline
-                \multicolumn{1}{|l|}{int}        & \multicolumn{1}{l|}{capacity}         & Sức chứa của MCP                            \\ \hline
-                \multicolumn{1}{|l|}{int}        & \multicolumn{1}{l|}{capacity}         & Sức chứa của phương tiện                    \\ \hline
-                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Methods}                                                                  \\ \hline
-                \multicolumn{1}{|l|}{boolean}    & \multicolumn{1}{l|}{isFull()}         & Kiểm tra MCP có đang đầy chỗ chứa hay không \\ \hline
-                \multicolumn{1}{|l|}{boolean}    & \multicolumn{1}{l|}{updateCapacity()} & Cập nhật lại sức chứa MCP                   \\ \hline
-                \multicolumn{1}{|l|}{void}       & \multicolumn{1}{l|}{notify()}         & Thông báo khi MCP hết sức chứa              \\ \hline
-                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Relationships}                                                            \\ \hline
+                \multicolumn{1}{|l|}{Class Name} & \multicolumn{2}{l|}{MCP}                              \\ \hline
+                \multicolumn{1}{|l|}{Inherit}    & \multicolumn{2}{l|}{None}                             \\ \hline
+                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Attributes}                                 \\ \hline
+                \multicolumn{1}{|l|}{int}        & \multicolumn{1}{l|}{id}            & Số định danh     \\ \hline
+                \multicolumn{1}{|l|}{double}     & \multicolumn{1}{l|}{capacity}      & Sức chứa         \\ \hline
+                \multicolumn{1}{|l|}{Address}    & \multicolumn{1}{l|}{address}       & Địa chỉ          \\ \hline
+                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Methods}                                    \\ \hline
+                \multicolumn{1}{|l|}{int}        & \multicolumn{1}{l|}{getId()}       & Lấy số định danh \\ \hline
+                \multicolumn{1}{|l|}{double}     & \multicolumn{1}{l|}{getCapacity()} & Lấy sức chứa     \\ \hline
+                \multicolumn{1}{|l|}{Address}    & \multicolumn{1}{l|}{getAddress()}  & Lấy địa chỉ      \\ \hline
+                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Relationships}                              \\ \hline
+                \multicolumn{1}{|l|}{belong to}  & \multicolumn{2}{l|}{MCP thuộc tuyến đường}            \\ \hline
             \end{tabular}
         \end{table}
-\end{enumerate}
+
+        \item Class Route:
+
+        \begin{table}[htp]
+            \begin{tabular}{|lll|}
+                \hline
+                \multicolumn{1}{|l|}{Class Name}    & \multicolumn{2}{l|}{Route}                                \\ \hline
+                \multicolumn{1}{|l|}{Inherit}       & \multicolumn{2}{l|}{None}                                 \\ \hline
+                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Attributes}                                        \\ \hline
+                \multicolumn{1}{|l|}{int}           & \multicolumn{1}{l|}{id}           & Số định danh          \\ \hline
+                \multicolumn{1}{|l|}{MCP{[}1..*{]}} & \multicolumn{1}{l|}{points}       & Danh sách các MCP     \\ \hline
+                \multicolumn{1}{|l|}{Vehicle}       & \multicolumn{1}{l|}{vehicle}      & Phương tiện           \\ \hline
+                \multicolumn{1}{|l|}{string}        & \multicolumn{1}{l|}{path}         & Đường đi              \\ \hline
+                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Methods}                                           \\ \hline
+                \multicolumn{1}{|l|}{Vehicle}       & \multicolumn{1}{l|}{getVehicle()} & Lấy phương tiện       \\ \hline
+                \multicolumn{1}{|l|}{MCP{[}1..*{]}} & \multicolumn{1}{l|}{getMCPs}      & Lấy danh sách các MCP \\ \hline
+                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Relationships}                                     \\ \hline
+            \end{tabular}
+        \end{table}
+
+        \item Class RoutePlanning:
+
+        \begin{table}[htp]
+            \begin{tabular}{|lll|}
+                \hline
+                \multicolumn{1}{|l|}{Class Name}  & \multicolumn{2}{l|}{RoutePlanning}                                                                                        \\ \hline
+                \multicolumn{1}{|l|}{Inherit}     & \multicolumn{2}{l|}{None}                                                                                                 \\ \hline
+                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Attributes}                                                                                                      \\ \hline
+                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Methods}                                                                                                         \\ \hline
+                \multicolumn{1}{|l|}{Route}       & \multicolumn{1}{l|}{planRoute(MCPs: MCP{[}1..*{]}, vehicle: Vehicle)}                              & Lập tuyến đường      \\ \hline
+                \multicolumn{1}{|l|}{Route}       & \multicolumn{1}{l|}{validateRoute(paths: string{[}1..*{]}, MCPs: MCP{[}1..*{]}, vehicle: Vehicle)} & Đánh giá tuyến đường \\ \hline
+                \multicolumn{1}{|l|}{boolean}     & \multicolumn{1}{l|}{chooseRoute(id: int)}                                                          & Chọn tuyến đường     \\ \hline
+                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Relationships}                                                                                                   \\ \hline
+                \multicolumn{1}{|l|}{Composition} & \multicolumn{2}{l|}{Bao gồm class Route}                                                                                  \\ \hline
+            \end{tabular}
+        \end{table}
+
+        \newpage
+        \item Class TaskController:
+
+        \begin{table}[htp]
+            \begin{tabular}{|lll|}
+                \hline
+                \multicolumn{1}{|l|}{Class Name}  & \multicolumn{2}{l|}{TaskController}                                                                     \\ \hline
+                \multicolumn{1}{|l|}{Inherit}     & \multicolumn{2}{l|}{None}                                                                               \\ \hline
+                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Attributes}                                                                                    \\ \hline
+                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Methods}                                                                                       \\ \hline
+                \multicolumn{1}{|l|}{Task}        & \multicolumn{1}{l|}{createTask(route: Route, time: DateTime)}          & Tạo task                       \\ \hline
+                \multicolumn{1}{|l|}{boolean}     & \multicolumn{1}{l|}{assignTask(task: Task, worker: Collector/Janitor)} & Gán task cho collector/janitor \\ \hline
+                \multicolumn{1}{|l|}{Task}        & \multicolumn{1}{l|}{editTask(id: Int)}                                 & Điều chỉnh task                \\ \hline
+                \multicolumn{1}{|l|}{boolean}     & \multicolumn{1}{l|}{deleteTask(id: Int)}                               & Xóa task                       \\ \hline
+                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Relationships}                                                                                 \\ \hline
+                \multicolumn{1}{|l|}{Composition} & \multicolumn{2}{l|}{Bao gồm class Task}                                                                 \\ \hline
+            \end{tabular}
+        \end{table}
+
+        \item Class UI:
+
+        \begin{table}[htp]
+            \begin{tabular}{|lll|}
+                \hline
+                \multicolumn{1}{|l|}{Class Name} & \multicolumn{2}{l|}{UI}                                                 \\ \hline
+                \multicolumn{1}{|l|}{Inherit}    & \multicolumn{2}{l|}{None}                                               \\ \hline
+                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Attributes}                                                   \\ \hline
+                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Methods}                                                      \\ \hline
+                \multicolumn{1}{|l|}{void}       & \multicolumn{1}{l|}{renderWorkerInfo()}  & Render thông tin nhân viên   \\ \hline
+                \multicolumn{1}{|l|}{void}       & \multicolumn{1}{l|}{renderCalendar()}    & Render lịch làm việc         \\ \hline
+                \multicolumn{1}{|l|}{void}       & \multicolumn{1}{l|}{renderDailyTask()}   & Render task hàng ngày        \\ \hline
+                \multicolumn{1}{|l|}{void}       & \multicolumn{1}{l|}{renderMCPInfo()}     & Render thông tin MCP         \\ \hline
+                \multicolumn{1}{|l|}{void}       & \multicolumn{1}{l|}{renderVehicleInfo()} & Render thông tin phương tiện \\ \hline
+                \multicolumn{3}{|c|}{\cellcolor[HTML]{FFFFC7}Relationships}                                                \\ \hline
+                \multicolumn{1}{|l|}{get info}   & \multicolumn{2}{l|}{Lấy dữ liệu từ Staff, Vehicle và MCP}               \\ \hline
+            \end{tabular}
+        \end{table}
+    \end{enumerate}
