@@ -8,7 +8,6 @@
     	\caption{Thiết kế kiến trúc của hệ thống}
     \end{figure}
    
-   
    	\begin{tblr}{
    			width=1\linewidth,
    			hlines,
@@ -18,22 +17,35 @@
    			row{1} = {halign = c, valign = m, bg = lightgray, fg = black},
    		}
    		{\textbf{Table} & \textbf{Architecture design}}  \\
-   		Pattern	& MVC + Client-server \\
-   		Description & 1. Với các thông tin cơ bản như thông tin cá nhân, lịch làm, thông tin về phương tiện, ta sử dụng mô hình MVC để lấy dữ liệu và hiển thị lên cho người dùng \newline
-   		2.Đối với thông tin về sức chứa của các MCPs: coi các MCP như là những server nhỏ, thực hiện chức năng thu thập thông tin về sức chứa do cảm biến ghi nhận. Cứ mỗi 15 phút, controller sẽ request thông tin về sức chứa MCP từ các server   \\
-   		Advantages & 1. Thông tin các MCPs sẽ dễ cập nhật, lưu trữ hơn. \newline
-   		2. Các sever lưu trữ là riêng biệt nên khi 1 sever của 1 MCP bị sự cố sẽ không ảnh hưởng đến các sever khác. \newline
-   		3. Hiển thị dữ liệu theo những cách khác nhau cho các đối tượng \newline
-   		4. Dễ mở rộng    \\
+   		Pattern		& 	MVC + Client-server \\
+   		Description & 	1. Với các thông tin cơ bản như thông tin cá nhân, lịch làm, thông tin về phương tiện, ta sử dụng mô hình MVC để lấy dữ liệu và hiển thị lên cho người dùng \newline
+   						2.Đối với thông tin về sức chứa của các MCPs: coi các MCP như là những server nhỏ, thực hiện chức năng thu thập thông tin về sức chứa do cảm biến ghi nhận. Cứ mỗi 15 phút, controller sẽ request thông tin về sức chứa MCP từ các server \\
+   		Advantages 	& 	1. Thông tin các MCPs sẽ dễ cập nhật, lưu trữ hơn. \newline
+   						2. Các sever lưu trữ là riêng biệt nên khi 1 sever của 1 MCP bị sự cố sẽ không ảnh hưởng đến các sever khác. \newline
+   						3. Hiển thị dữ liệu theo những cách khác nhau cho các đối tượng \newline
+   						4. Dễ mở rộng    \\
    		Disadvantages & 1. Chi phí thiết lập, duy trì các sever trong client-sever khá cao \newline
-   		2. Tốc độ phụ thuộc vào tốc độ internet \\
-   		Flow & 1. Controller nhận request từ người dùng -> gọi đến database thực hiện yêu cầu -> database gửi kết qua sau khi thực hiện lại cho controller -> controller gửi dữ liệu vừa nhận được cho phần View -> View hiển thị kết quả cho người dùng.newline \newline
-   		\newline
-   		2. Controller yêu cầu thông tin từ các MCP -> MCP nhận request và trả về thông tin cho Controller -> Controller thông báo thông tin cho người dùngnewline \\
+						2. Tốc độ phụ thuộc vào tốc độ internet \\
+		Flow & 			1. Controller nhận request từ người dùng -> gọi đến database thực hiện yêu cầu -> database gửi kết qua sau khi thực hiện lại cho controller -> controller gửi dữ liệu vừa nhận được cho phần View -> View hiển thị kết quả cho người dùng.newline \newline
+						\newline
+						2. Controller yêu cầu thông tin từ các MCP -> MCP nhận request và trả về thông tin cho Controller -> Controller thông báo thông tin cho người dùngnewline \\
    	\end{tblr}
   
    	\vspace{0.5cm}
+
+	\quad \textbf{Những nguyên nhân nhóm chọn kiến trúc trên:}
+	\begin{enumerate}
+		\item[-] MCP phù hợp với yêu cầu hiện thực ứng dụng trên nền tảng web, dễ dàng trong việc thiết kế, triển khai hệ thống.
+		\item[-] Client-server cho phép mở rộng phạm vi thu thập thông tin về các điểm MCPs, mở rộng hoạt động của công ty.
+		\item[-] Xét tương đối với các kiến trúc khác:
+		\begin{enumerate}
+			\item[+] Ăn đứt Layer về khoảng tốc độ.
+			\item[+] Peer-to-Pear không khả thi với yêu cầu của đề bài, phù hợp với việc truyền tải file có kích thước lớn hơn so việc quản lý hay phân công nhân viên.
+			\item[+] Broker phù hợp với những yêu cầu thời gian thực hơn là quản lý và phân công nhân viên. 
+		\end{enumerate}
+	\end{enumerate}
   
+	\newpage
    	\quad Đối với bài toán được đặt ra, ta sẽ có tổng cộng 6 module. Bao gồm:
    	\begin{enumerate}
    		\item Module Xác thực
@@ -71,7 +83,6 @@
 		  			 NotifyMessage() \\
   		\end{tblr}
   	
-  		\newpage
   		\item Module View information
   		
   		\begin{tblr}{
@@ -94,6 +105,7 @@
   			ShowCalendar() \\
   		\end{tblr}
    		
+
    		\item Module Manage Resource
    		
    		\begin{tblr}{
@@ -115,6 +127,7 @@
 		   			 DeactivateVehicle() \\
    		\end{tblr}
    		
+		\newpage
    		\item Module Planning route
    		
    		\begin{tblr}{
@@ -135,7 +148,6 @@
 	   				 ValidatePath() \\
    		\end{tblr}
    		
-   		\newpage
    		\item Module Task assign
    		
    		\begin{tblr}{
@@ -157,4 +169,5 @@
    		\end{tblr}
    		
    	\end{enumerate}
+	\newpage
    
