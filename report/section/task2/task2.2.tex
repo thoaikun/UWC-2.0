@@ -1,34 +1,35 @@
+
 \section{Giải pháp ý niệm cho task Route planning và Sequence diagram mô tả nó}
     \subsection{Giải pháp ý niệm cho task Route Planning}
         \textbf{Xét các Actor: }
-    
+
         \begin{itemize}
             \item[-] Back Officer.
             \item[-] Cơ sở dữ liệu bản đồ (Map Database): một API cung cấp mọi thông tin về đường đi trong một vùng không gian nhất định khi được yêu cầu.
         \end{itemize}
-    
+
         \textbf{Giả định:}
-    
+
         \begin{itemize}
             \item[-] Back Officer đã đăng nhập thành công vào hệ thống.
             \item[-] Back Officer đã thao tác với hệ thống, đã nạp một danh sách các MCPs mà mình có như cầu tìm đường.
             \item[-] Map Database luôn hoạt động và hoạt động đúng kỳ vọng.
         \end{itemize}
-    
+
         \textbf{Ta có, các entity liên quan:}
-    
+
         \begin{itemize}
             \item[-] UIController: Hệ thống đảm nhiệm chức năng làm cầu nối, cho phép người dùng quản lý, sử dụng hệ thống.
             \item[-] RoutePlannerObject: Hệ thống đảm nhiệm chính chức năng tìm đường tự động và đánh giá đường đi.
         \end{itemize}
-    
+
         \textbf{Các thao tác có thể thực hiện}
-    
+
         \begin{itemize}
             \item[-] Back officer ra lệnh cho hệ thống tự tạo đường đi (route) phù hợp.
             \item[-] Back officer tự chỉnh sửa, thêm bớt các tuyến đường trong route mới hoặc route đã định sẵn từ thao tác trên.
         \end{itemize}
-    
+
         \textbf{Mô tả chi tiết các thao tác}
         \begin{enumerate}
             \item Back officer ra lệnh cho hệ thống tự tạo đường đi (route) phù hợp.
@@ -41,7 +42,7 @@
                     \item[+] Nếu không tồn tại path nào. RoutePlannerObject trả về lỗi không tồn tại đường đi cho UIController. Quá trình tự động tạo route kết thúc không thành công.
                 \end{itemize}
             \end{itemize}
-        
+
             \item Back officer tự chỉnh sửa, thêm bớt các tuyến đường trong route mới hoặc route đã định sẵn từ thao tác trên.
             \begin{itemize}
                 \item[-] UIController tự chờ mỗi khi người dùng chỉnh sửa, thêm/ bớt route trên giao diện, chạy lệnh ModifyRoute (route) với route là tổng hợp các route mới (mà người dùng đã thay đổi/ chỉnh sửa).
@@ -60,5 +61,5 @@
             \includegraphics[width=1\linewidth]{imgs/sequence diagram/Sequence Diagram 2.2.png}
             \caption{Sequence diagram cho Task Route Planning}
         \end{figure}
-    
+
         \newpage

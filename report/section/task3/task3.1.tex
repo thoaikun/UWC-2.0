@@ -1,13 +1,13 @@
 \section{Mô tả thiết kế kiến trúc để xây dựng hệ thống}
     \quad Sau khi xác định rõ bài toàn, dựa trên những yêu cầu cả về mặt chứng năng và phi chức năng, nhóm quyết định đưa ra thiết kế hệ thống như sau:
-   
+
     \vspace{1cm}
     \begin{figure}[h]
     	\centering
     	\includegraphics[width=1\linewidth]{imgs/architecture design.png}
     	\caption{Thiết kế kiến trúc của hệ thống}
     \end{figure}
-   
+
    	\begin{tblr}{
    			width=1\linewidth,
    			hlines,
@@ -30,7 +30,7 @@
 						\newline
 						2. Controller yêu cầu thông tin từ các MCP -> MCP nhận request và trả về thông tin cho Controller -> Controller thông báo thông tin cho người dùngnewline \\
    	\end{tblr}
-  
+
    	\vspace{0.5cm}
 
 	\quad \textbf{Những nguyên nhân nhóm chọn kiến trúc trên:}
@@ -41,15 +41,15 @@
 		\begin{enumerate}
 			\item[+] Ăn đứt Layer về khoảng tốc độ.
 			\item[+] Peer-to-Pear không khả thi với yêu cầu của đề bài, phù hợp với việc truyền tải file có kích thước lớn hơn so việc quản lý hay phân công nhân viên.
-			\item[+] Broker phù hợp với những yêu cầu thời gian thực hơn là quản lý và phân công nhân viên. 
+			\item[+] Broker phù hợp với những yêu cầu thời gian thực hơn là quản lý và phân công nhân viên.
 		\end{enumerate}
 	\end{enumerate}
-  
+
 	\newpage
    	\quad Đối với bài toán được đặt ra, ta sẽ có tổng cộng 6 module. Bao gồm:
    	\begin{enumerate}
    		\item Module Xác thực
-   		
+
    		\begin{tblr}{
    				width=1\linewidth,
    				hlines,
@@ -65,9 +65,9 @@
    			 		 Logout() \newline
    			 		 ChangePassword() \\
    		\end{tblr}
-   	   		
+
    		\item Module Chat
-   		
+
   		\begin{tblr}{
   				width=1\linewidth,
   				hlines,
@@ -82,9 +82,9 @@
 		  			 SendMessage() \newline
 		  			 NotifyMessage() \\
   		\end{tblr}
-  	
+
   		\item Module View information
-  		
+
   		\begin{tblr}{
   				width=1\linewidth,
   				hlines,
@@ -104,10 +104,10 @@
   			ShowDailyTask() \newline
   			ShowCalendar() \\
   		\end{tblr}
-   		
+
 
    		\item Module Manage Resource
-   		
+
    		\begin{tblr}{
    				width=1\linewidth,
    				hlines,
@@ -126,10 +126,10 @@
 		   			 EditVehicle() \newline
 		   			 DeactivateVehicle() \\
    		\end{tblr}
-   		
+
 		\newpage
    		\item Module Planning route
-   		
+
    		\begin{tblr}{
    				width=1\linewidth,
    				hlines,
@@ -147,9 +147,9 @@
 	   				 GetPathsBetween() \newline
 	   				 ValidatePath() \\
    		\end{tblr}
-   		
+
    		\item Module Task assign
-   		
+
    		\begin{tblr}{
    				width=1\linewidth,
    				hlines,
@@ -167,7 +167,6 @@
    					 SetSchedule() \newline
    					 AssignTask() \\
    		\end{tblr}
-   		
+
    	\end{enumerate}
-	\newpage
-   
+\newpage
