@@ -11,7 +11,7 @@
     
         \begin{itemize}
             \item[-] Back Officer đã đăng nhập thành công vào hệ thống.
-            \item[-] Back Officer đã thao tác với hệ thống, đã nạp một danh sách các MCPs mà mình có như cầu tìm đường.
+            \item[-] Back Officer đã thao tác với hệ thống, đã nạp một danh sách các MCPs mà mình có nhu cầu tìm đường.
             \item[-] Map Database luôn hoạt động và hoạt động đúng kỳ vọng.
         \end{itemize}
     
@@ -35,10 +35,10 @@
             \begin{itemize}
                 \item[-] Người dùng thực hiện lệnh tạo route tự động bằng cách ra lệnh GenerateRoute () lên hệ thống.
                 \item[-] UIController nhận lệnh, thực hiện lệnh PlanRoute (MCPs, vehicles) lên hệ thống RoutePlannerObject với MCPs, vehicles là các MCP và phương tiện được dùng.
-                \item[-] RoutePlannerObject thực hiện GetVailablePaths (locations, vehicles) đối với Map Database để lấy đường đi hợp lệ giữa các vị trí của MCP mà phương tiện có thể di chuyển qua.
+                \item[-] RoutePlannerObject thực hiện GetAvailablePaths (locations, vehicles) đối với Map Database để lấy đường đi hợp lệ giữa các vị trí của MCP mà phương tiện có thể di chuyển qua.
                 \begin{itemize}
-                    \item[+] Nếu tồn tại những đường đi hợp lệ. RoutePlannerObject tính toán route tốt nhất và trả về cho UIController. UIController trình thông tin về người dùng. Quá trình tự động tạo route kết thúc thành công.
-                    \item[+] Nếu không tồn tại path nào. RoutePlannerObject trả về lỗi không tồn tại đường đi cho UIController. Quá trình tự động tạo route kết thúc không thành công.
+                    \item[+] Nếu tồn tại những đường đi hợp lệ, RoutePlannerObject tính toán route tốt nhất và trả về cho UIController. UIController trình thông tin về người dùng. Quá trình tự động tạo route kết thúc thành công.
+                    \item[+] Nếu không tồn tại path nào, RoutePlannerObject trả về lỗi không tồn tại đường đi cho UIController. Quá trình tự động tạo route kết thúc không thành công.
                 \end{itemize}
             \end{itemize}
         

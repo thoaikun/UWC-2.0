@@ -35,17 +35,16 @@
 
 	\quad \textbf{Những nguyên nhân nhóm chọn kiến trúc trên:}
 	\begin{enumerate}
-		\item[-] MCP phù hợp với yêu cầu hiện thực ứng dụng trên nền tảng web, dễ dàng trong việc thiết kế, triển khai hệ thống.
+		\item[-] MCP (Model - Controller - View) là kiểu kiến trúc bao gồm 3 chủ thể lớn là Controller - đảm nhiệm việc kiểm tra và thực hiện các yêu cầu được gửi đến, Model - đảm nhiệm việc truy suất dữ liệu của hệ thống và View - là cái được trả về cho người dùng, cái được hiển thị trên màn hình. MCP phù hợp với yêu cầu hiện thực ứng dụng trên nền tảng web, dễ dàng trong việc thiết kế, triển khai hệ thống.
 		\item[-] Publisher - Subcriber cho cho phép hệ thống nhận thông tin liên tục về các điểm MCP và gửi đến người dùng những thông tin kịp thời nhất khi một hay nhiều điểm MCP bị đầy.
 		\item[-] Xét tương đối với các kiến trúc khác:
 		\begin{enumerate}
-			\item[+] Ăn đứt Layer về khoảng tốc độ.
-			\item[+] Peer-to-Peer không khả thi với yêu cầu của đề bài, phù hợp với việc truyền tải file có kích thước lớn hơn so việc quản lý hay phân công nhân viên.
-			\item[+] Broker phù hợp với những yêu cầu thời gian thực hơn là quản lý và phân công nhân viên. 
+			\item[+] Mặc dù Layer và MCV đều được thiết kế theo kiểu module, trong đó các khối được tách ra đảm nhiệm từng chức năng riêng biệt, khi cần nâng cấp một module sẽ không ảnh hưởng đến hoạt động của các module khác. Tuy nhiên MVC có hiệu suất tốt hơn Layer, vì dữ liệu được truyền qua một tầng duy nhất, khác với việc khi truyền dữ liệu ở kiến trúc Layer phải đi qua nhiều lớp dẫn tới hao phí thời gian truyển dữ liệu từ lớp này sang lớp kia
+			\item[+] Peer-to-Peer là kiểu thiết kế trong đó các client sẽ kết nối trực tiếp với nhau, trong trường hợp ứng dụng quản lý có số lượng lớn các client (bao gồm back officer, janitor, collect), việc kết nối trực tiếp các thiết bị sẽ gây ra sự chồng chéo, khó khăn trong việc kiểm soát cũng như bảo trì
+			\item[+] Pipe-filter có lợi thế trong việc tách dữ liệu có độ phức tạp cao thành dữ liệu sạch thông qua các lớp màn lọc (filter), tuy nhiên hạn chế của kién trúc này là ở việc với những nguồn data khác nhau, nó sẽ yêu cầu một luồng riêng, khả năng tái sử dụng các luồng cũ rất thấp. Đối với bài toán mà nhóm đang giải quyết, việc dữ liệu mà các MCP trả về là khác nhau, nguyên nhân có thể do sự khác biệt về phần cứng hay phần mềm của các cảm biến, chính vì thế nếu sử dụng Pipe-filter thì ta phải tạo ra nhiều luồng xử lý đối với từng MCP.
 		\end{enumerate}
 	\end{enumerate}
   
-	\newpage
    	\quad Đối với bài toán được đặt ra, ta sẽ có tổng cộng 6 module. Bao gồm:
    	\begin{enumerate}
    		\item Module Xác thực
@@ -105,7 +104,7 @@
   			ShowCalendar() \\
   		\end{tblr}
    		
-
+		\newpage
    		\item Module Manage Resource
    		
    		\begin{tblr}{
@@ -127,7 +126,6 @@
 		   			 DeactivateVehicle() \\
    		\end{tblr}
    		
-		\newpage
    		\item Module Planning route
    		
    		\begin{tblr}{
