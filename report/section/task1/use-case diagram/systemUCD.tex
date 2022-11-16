@@ -18,10 +18,10 @@
         {\textbf{Use case name} & \textbf{Manage resources}}  \\
         Description	& Quản lý tài nguyên của công ty \\
         Actor & Người quản lý (Administrator) \\
-        Trigger & Người quản lý ấn vào phần quản lý tài nguyên  \\
+        Trigger & Người quản lý ấn vào phần menu \\
         Pre-condition & Người quản lý đã đăng nhập và đang ở màn hình chính\\
         Post-condition & Người quản lý được đưa vào trang quản lý tài nguyên\\
-        Normal flow &   		1. Hệ thống hiển thị giao diện quản lý tài nguyên \newline
+        Normal flow &   		1. Hệ thống hiển thị các tùy chọn quản lý tài nguyên \newline
                                 2. Quản lý thực hiện việc quản lý tài nguyên \\
         Alternative flow  & 	none \\
         Exception flow & none\\
@@ -106,7 +106,7 @@
         Trigger & Người dùng ấn vào nút đăng xuất  \\
         Pre-condition & Người dùng đã đăng nhập, và đang ở màn hình chính \\
         Post-condition & Tài khoản được đăng xuất khỏi hệ thống \\
-        Normal flow &   1. Người dùng ấn vào menu \newline
+        Normal flow &   1. Người dùng ấn vào icon tài khoản \newline
                     	2. Người dùng chọn đăng xuất \newline
                     	3. Hệ thống hiện thị form xác nhận đăng xuất \newline
                     	4. Hệ thống xóa phiên làm việc  \newline
@@ -127,7 +127,7 @@
         {\textbf{Use case name} & \textbf{Chat}}  \\
         Description	& Nhân viên liên lạc với nhau \\
         Actor & Nhân viên (Staff) \\
-        Trigger & 	Nhân viên ấn vào phần liên hệ \\
+        Trigger & Nhân viên ấn vào phần liên hệ ở menu tài khoản \\
         Pre-condition & Người dùng đã đăng nhập\\
         Post-condition & Tin nhắn được gửi thành công \newline
                          Nhân viên nhận và đọc được tin nhắn \\
@@ -154,7 +154,7 @@
         {\textbf{Use case name} & \textbf{Manage MCP's information}}  \\
         Description	& Xem thông tin về các MCPs \\
         Actor & Nhân viên (Staff) \\
-        Trigger & 	Nhân viên ấn vào mục tổng quan MCPs \\
+        Trigger & 	Nhân viên ấn vào mục tổng quan MCPs ở menu chính \\
         Pre-condition & Nhân viên đã đăng nhập và đang ở màn hình chính \\
         Post-condition & Thông tin về MCP được hiển thị thành công \\
         Normal flow &   1. Hệ thống lấy thông tin các MCPs \newline
@@ -197,18 +197,38 @@
         columns = {valign = m, },
         row{1} = {halign = c, valign = m, bg = lightgray, fg = black},
     }
-        {\textbf{Use case name} & \textbf{View information and calendar}}  \\
+        {\textbf{Use case name} & \textbf{View info}}  \\
+        Description	& Công nhân xem thông tin và lịch làm trong tuần \\
+        Actor & 	Nhân viên giám sát (Backofficer), Nhân viên lái xe rác (Collector), Nhân viên thu gom rác (Janitor) \\
+        Trigger & 	Công nhân ấn vào phần thông tin chung trong tuần ở menu tài khoản \\
+        Pre-condition & Công nhân đã đăng nhập và đang ở màn hình chính \\
+        Post-condition & Công nhân xem được thông tin chung của bản thân \\
+        Normal flow &   1. Hệ thống lấy thông tin về lý lịch của nhân viên \newline
+                    	2. Hệ thống hiển thị giao diện thông tin chung \newline
+                    	3. Công nhân xem thông tin của mình \\
+        Alternative flow  & none \\
+        Exception flow & none \\
+    \end{tblr}
+
+    \vspace{1cm}
+    \begin{tblr}{
+        width=1\linewidth,
+        hlines,
+        vlines,
+        colspec={X[3]X[7]},
+        columns = {valign = m, },
+        row{1} = {halign = c, valign = m, bg = lightgray, fg = black},
+    }
+        {\textbf{Use case name} & \textbf{View calendar}}  \\
         Description	& Công nhân xem thông tin và lịch làm trong tuần \\
         Actor & 	Nhân viên lái xe rác (Collector), Nhân viên thu gom rác (Janitor) \\
-        Trigger & 	Công nhân ấn vào phần thông tin và lịch làm \\
+        Trigger & 	Công nhân ấn vào phần lịch làm trong tuần ở menu chính \\
         Pre-condition & Công nhân đã đăng nhập và đang ở màn hình chính \\
-        Post-condition & Công nhân xem được thông tin và lịch làm của mình \\
-        Normal flow &   1. Hệ thống lấy thông tin và lịch làm \newline
-                    	2. Hệ thống hiển thị giao diện bao gồm 2 tab (thông tin chung, lịch làm) 	mặc định ở thông tin chung \newline
-                    	3. Công nhân xem thông tin của bản thân\\
-        Alternative flow  & Alternative flow thứ 1: Tại bước 2 \newline
-                    	    1a. Người dùng chọn tab lịch làm \newline
-                    	    1b. Hệ thống hiển thị giao diện về lịch làm việc trong tuần \\
+        Post-condition & Công nhân xem được lịch làm của mình \\
+        Normal flow &   1. Hệ thống lấy thông tin về lịch làm \newline
+                    	2. Hệ thống hiển thị giao diện lịch làm việc \newline
+                    	3. Công nhân xem lịch làm việc của mình \\
+        Alternative flow  & none \\
         Exception flow & none \\
     \end{tblr}
 
@@ -223,7 +243,7 @@
         {\textbf{Use case name} & \textbf{View daily task}}  \\
         Description	& Công nhân xem chi tiết công việc trong ngày \\
         Actor & 	Nhân viên lái xe rác (Collector), Nhân viên thu gom rác (Janitor) \\
-        Trigger & 	Công nhân ấn vào phần nhiệm vụ hôm nay\\
+        Trigger & 	Công nhân ấn vào phần nhiệm vụ hôm nay ở menu chính\\
         Pre-condition & Công nhân đã đăng nhập và đang ở màn hình chính \\
         Post-condition & Nhiệm vụ cụ thể trong ngày được hiện lên màn hình \\
         Normal flow &   1. Hệ thống lấy thông tin làm việc trong ngày \newline
@@ -267,7 +287,7 @@
         {\textbf{Use case name} & \textbf{View workers}}  \\
         Description	& Xem thông tin công nhân và lịch làm của họ \\
         Actor & 	Nhân viên giám sát (Back officer) \\
-        Trigger & 	Nhân viên giám sát ấn vào mục quản lý nhân viên \\
+        Trigger & 	Nhân viên giám sát ấn vào mục quản lý nhân viên ở menu chính \\
         Pre-condition & Nhân viên giám sát đã đăng nhập và đang ở màn hình chính \\
         Post-condition & Thông tin chi tiết và lịch làm việc trong tuần của công nhân được hiển thị \\
         Normal flow &   1. Hệ thống lấy dữ liệu của nhân viên \newline
@@ -293,7 +313,7 @@
         {\textbf{Use case name} & \textbf{View vehicle}}  \\
         Description	& Xem thông tin của các phương tiện \\
         Actor & 	Nhân viên giám sát (Back officer) \\
-        Trigger & 	Nhân viên giám sát ấn vào mục theo dõi phương tiện\\
+        Trigger & 	Nhân viên giám sát ấn vào mục theo dõi phương tiện ở menu chính \\
         Pre-condition & Nhân viên giám sát đã đăng nhập và đang ở màn hình chính \\
         Post-condition & Thông tin phương tiện được hiển thị trên màn hình \\
         Normal flow &   1. Hệ thống truy cập vào dữ liệu về phương tiện \newline
