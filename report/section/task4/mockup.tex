@@ -238,7 +238,8 @@
             2 & Button & Hiển thị menu phụ\\
             3 & List & Chọn phương tiện muốn xem và chỉnh sửa, thông tin sẽ được hiển thị bên phải\\
             4 & Button & Thực hiển deactive phương tiện, thông báo xác nhận xuất hiện\\
-            5 & Button & Chuyển sang trang chỉnh sửa phương tiện\\
+            5 & Button & Hiển thị phần chỉnh sửa phương tiện\\
+            6 & Button & Hiển thị phần thêm phương tiện \\
         \end{tblr}
         \newpage
 
@@ -262,10 +263,63 @@
             1 & Button & Hiển thị menu chính\\
             2 & Button & Hiển thị menu phụ\\
             3 & List & Chọn công nhân muốn xem và chỉnh sửa, thông tin sẽ được hiển thị bên phải\\
-            4 & Button & Chuyển sang trang thêm công nhân mới\\
+            4 & Button & Hiển thị trang thêm công nhân mới\\
             5 & Button & Xem công việc của công nhân\\
-            6 & Button & Chuyển sang trang chỉnh sửa công nhân\\
+            6 & Button & Hiển thị trang chỉnh sửa công nhân\\
             7 & Button & Thực hiển deactive phương tiện, thông báo xác nhận xuất hiện\\
+        \end{tblr}
+        \newpage
+
+    \subsection{UI phần thêm/sửa công nhân hoặc phương tiện}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=1\linewidth]{imgs/mockup/add_edit.pdf}
+            \caption{UI phần thêm/chỉnh sửa}
+        \end{figure}
+
+        \begin{tblr}{
+            width=0.9\linewidth,
+            hlines, 
+            vlines,
+            colspec={X[-1]X[1]X[7]},
+            columns = {valign = m, },
+            column{1} = {halign = c},
+            row{1} = {halign = c, valign = m, bg = lightgray, fg = black},
+            }
+            {\textbf{\#}} & \textbf{Type} & {\textbf{Mô tả}} \\
+            1,2,3,4,5 & Input & Nhập các thông tin cần thiết\\
+            6 & Button & thực hiện tạo/sửa, thông báo xác nhận xuất hiện\\
+        \end{tblr}
+        \newpage
+
+    \subsection{UI trang tạo công việc}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.6\linewidth]{imgs/mockup/assign task 1.pdf}
+            \caption{UI trang tạo công việc}
+        \end{figure}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.6\linewidth]{imgs/mockup/assign task 2.pdf}
+            \caption{UI trang tạo công việc}
+        \end{figure}
+        
+        \begin{tblr}{
+            width=0.9\linewidth,
+            hlines, 
+            vlines,
+            colspec={X[-1]X[1]X[7]},
+            columns = {valign = m, },
+            column{1} = {halign = c},
+            row{1} = {halign = c, valign = m, bg = lightgray, fg = black},
+            }
+            {\textbf{\#}} & \textbf{Type} & {\textbf{Mô tả}} \\
+            1 & Button & Hiển thị menu chính\\
+            2 & Button & Hiển thị menu phụ\\
+            3,4,5,6 & Checkbox & Chọn các điểm MCP \\
+            8,9 & Checkbox & Chọn các phương tiện \\
+            10, 11 & Checkbox & Chọn công nhân \\
+            7 & Button & Xác nhận và tạo công việc mới \\
         \end{tblr}
         \newpage
 
