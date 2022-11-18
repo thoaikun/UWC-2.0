@@ -10,7 +10,7 @@
             width=0.9\linewidth,
             hlines, 
             vlines,
-            colspec={X[-1]X[1]X[7]},
+            colspec={X[-1]X[2]X[7]},
             columns = {valign = m, },
             column{1} = {halign = c},
             row{1} = {halign = c, valign = m, bg = lightgray, fg = black},
@@ -106,7 +106,7 @@
             width=0.9\linewidth,
             hlines, 
             vlines,
-            colspec={X[-1]X[1]X[7]},
+            colspec={X[-1]X[2]X[7]},
             columns = {valign = m, },
             column{1} = {halign = c},
             row{1} = {halign = c, valign = m, bg = lightgray, fg = black},
@@ -114,7 +114,7 @@
             {\textbf{\#}} & \textbf{Type} & {\textbf{Mô tả}} \\
             1 & Button & Hiển thị menu chính\\
             2 & Button &  Hiển thị menu tài khoản\\
-            3 & Check box & Đánh dâu công việc đã hoàn thành\\
+            3,4,5,6 & Check box & Đánh dâu công việc đã hoàn thành\\
         \end{tblr}
         \newpage
     
@@ -143,7 +143,7 @@
             {\textbf{\#}} & \textbf{Type} & {\textbf{Mô tả}} \\
             1 & Button & Hiển thị menu chính\\
             2 & Button & Hiển thị menu tài khoản\\
-            3 & Button & Hiển thị chi tiết công việc trong ngày được chọn\\
+            3,4,5 & Button & Hiển thị chi tiết công việc trong ngày được chọn\\
         \end{tblr}
         \newpage
     
@@ -188,9 +188,9 @@
             {\textbf{\#}} & \textbf{Type} & {\textbf{Mô tả}} \\
             1 & Button & Hiển thị menu chính\\
             2 & Button & Hiển thị menu phụ\\
-            3 & List & Chọn nhân viên muốn nhắn tin, phần tin nhắn sẽ hiển thi bên phải\\
-            4 & Input & Nhập tin nhắn\\
-            5 & Button & Gửi tin nhắn \\
+            3,4,5 & List & Chọn nhân viên muốn nhắn tin, phần tin nhắn sẽ hiển thi bên phải\\
+            6 & Input & Nhập tin nhắn\\
+            7 & Button & Gửi tin nhắn \\
         \end{tblr}
         \newpage
 
@@ -213,7 +213,7 @@
             {\textbf{\#}} & \textbf{Type} & {\textbf{Mô tả}} \\
             1 & Button & Hiển thị menu chính\\
             2 & Button & Hiển thị menu phụ\\
-            3 & List & Chọn MCP muốn xem, thông tin sẽ được hiển thị bên phải
+            3,4,5 & List & Chọn MCP muốn xem, thông tin sẽ được hiển thị bên phải
         \end{tblr}
         \newpage
     
@@ -236,10 +236,10 @@
             {\textbf{\#}} & \textbf{Type} & {\textbf{Mô tả}} \\
             1 & Button & Hiển thị menu chính\\
             2 & Button & Hiển thị menu phụ\\
-            3 & List & Chọn phương tiện muốn xem và chỉnh sửa, thông tin sẽ được hiển thị bên phải\\
-            4 & Button & Thực hiển deactive phương tiện, thông báo xác nhận xuất hiện\\
+            3 & Button & Hiển thị phần thêm phương tiện \\
+            4 & Button & Thực hiện deactive phương tiện, thông báo xác nhận xuất hiện\\
             5 & Button & Hiển thị phần chỉnh sửa phương tiện\\
-            6 & Button & Hiển thị phần thêm phương tiện \\
+            6,7,8,9,10 & List & Chọn phương tiện muốn xem và chỉnh sửa, thông tin sẽ được hiển thị bên phải\\
         \end{tblr}
         \newpage
 
@@ -262,11 +262,11 @@
             {\textbf{\#}} & \textbf{Type} & {\textbf{Mô tả}} \\
             1 & Button & Hiển thị menu chính\\
             2 & Button & Hiển thị menu phụ\\
-            3 & List & Chọn công nhân muốn xem và chỉnh sửa, thông tin sẽ được hiển thị bên phải\\
-            4 & Button & Hiển thị trang thêm công nhân mới\\
-            5 & Button & Xem công việc của công nhân\\
-            6 & Button & Hiển thị trang chỉnh sửa công nhân\\
-            7 & Button & Thực hiển deactive phương tiện, thông báo xác nhận xuất hiện\\
+            3 & Button & Hiển thị trang thêm công nhân mới\\
+            4 & Button & Xem công việc của công nhân\\
+            5 & Button & Hiển thị trang chỉnh sửa công nhân\\
+            6 & Button & Thực hiện deactive phương tiện, thông báo xác nhận xuất hiện\\
+            7,8,9,\newline 10,11 & List & Chọn công nhân muốn xem và chỉnh sửa, thông tin sẽ được hiển thị bên phải\\
         \end{tblr}
         \newpage
 
@@ -308,7 +308,7 @@
             width=0.9\linewidth,
             hlines, 
             vlines,
-            colspec={X[-1]X[1]X[7]},
+            colspec={X[-1]X[2]X[7]},
             columns = {valign = m, },
             column{1} = {halign = c},
             row{1} = {halign = c, valign = m, bg = lightgray, fg = black},
@@ -317,8 +317,8 @@
             1 & Button & Hiển thị menu chính\\
             2 & Button & Hiển thị menu phụ\\
             3,4,5,6 & Checkbox & Chọn các điểm MCP \\
-            8,9 & Checkbox & Chọn các phương tiện \\
-            10, 11 & Checkbox & Chọn công nhân \\
+            8,9,10,11 & Checkbox & Chọn các phương tiện \\
+            12,13,14 & Checkbox & Chọn công nhân \\
             7 & Button & Xác nhận và tạo công việc mới \\
         \end{tblr}
         \newpage
