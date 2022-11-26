@@ -1,7 +1,7 @@
 CREATE SCHEMA IF NOT EXISTS uwc;
 USE uwc;
 
-#DROP SCHEMA uwc;
+
 
 CREATE TABLE account
 (
