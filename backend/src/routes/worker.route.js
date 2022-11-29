@@ -7,7 +7,8 @@ const passwordValidation = require('../app/middleware/passwordValidation')
 
 router.get('/', workerController.getAll)
 router.get('/:id', workerController.get)
-router.patch('/edit/:id', workerValidation, workerController.update)
+router.patch('/:id', workerValidation, workerController.update)
+router.delete('/:id', workerController.delete)
 router.post('/create', workerController.create)
 router.patch('/changePassword/:id', passwordValidation, workerController.changePassword)
 

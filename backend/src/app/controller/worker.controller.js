@@ -13,8 +13,8 @@ class WorkerController {
 
     get(req, res) {
         let id = Number.parseInt(req.params.id)
-        workerModel.get(id, (worker) => {
-            workerView.get(res, worker)
+        workerModel.get(id, (status, worker) => {
+            workerView.get(res, status, worker)
         })
     }
 
@@ -22,8 +22,8 @@ class WorkerController {
         let id = Number.parseInt(req.params.id)
         let editedWorker = req.body
 
-        workerModel.update(id, editedWorker, (result, message) => {
-            workerView.update(res, result, message)
+        workerModel.update(id, editedWorker, (status, result, message) => {
+            workerView.update(res, status, result, message)
         })
     }
 
@@ -43,8 +43,15 @@ class WorkerController {
         let id = Number.parseInt(req.params.id)
         let newPassword = req.body.newPassword
         let oldPassword = req.body.oldPassword
-        workerModel.changePassword(id, oldPassword, newPassword, (result, message) => {
-            workerView.changePassword(res, result, message)
+        workerModel.changePassword(id, oldPassword, newPassword, (status, result, message) => {
+            workerView.changePassword(res, status, result, message)
+        })
+    }
+
+    delete(req, res) {
+        let id = Number.parseInt(req.params.id)
+        workerModel.delete(id, (status, result, message) => {
+            workerView.delete(res, status, result, message)
         })
     }
 }

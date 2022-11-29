@@ -18,25 +18,24 @@ class WorkerView {
         }
     }
 
-    get(res, worker) {
+    get(res, status, worker) {
         if (worker) {
-            res.status(200).json({
+            res.status(status).json({
                 result: 'success',
                 message: 'get worker by id',
                 worker: worker
             })
         }
         else {
-            res.status(404).json({
+            res.status(status).json({
                 result: 'fail',
                 message: 'id not exist, please check again',
-                workers: null
             })
         }
     }
 
-    update(res, result, message) {
-        res.status(result ? 200 : 400).json({
+    update(res, status, result, message) {
+        res.status(status).json({
             result: result ? 'success' : 'fail',
             message
         })
@@ -49,14 +48,19 @@ class WorkerView {
         })
     }
 
-    changePassword(res, result, message) {
-        res.status(result ? 200 : 400).json({
+    changePassword(res, status, result, message) {
+        res.status(status).json({
             result: result ? 'success' : 'fail',
             message
         })
     }
 
-
+    delete(res, status, result, message) {
+        res.status(status).json({
+            result: result ? 'success' : 'fail',
+            message
+        })
+    }
 }
 
 module.exports = WorkerView
