@@ -1,6 +1,8 @@
 CREATE SCHEMA IF NOT EXISTS uwc;
 USE uwc;
 
+
+
 CREATE TABLE account
 (
     id           INT AUTO_INCREMENT,
@@ -29,7 +31,7 @@ CREATE TABLE backofficer
 CREATE TABLE vehicle
 (
     id              INT AUTO_INCREMENT,
-    carNumber       VARCHAR(6) UNIQUE,
+    carNumber       VARCHAR(15) UNIQUE,
     type            ENUM ('TRUCK', 'TROLLER') NOT NULL,
     status          ENUM ('GOOD', 'BROKEN')   NOT NULL,
     weight          FLOAT                     NOT NULL,
@@ -64,10 +66,10 @@ CREATE TABLE road
 (
     id         INT AUTO_INCREMENT,
     routeId    INT,
-    startPoint VARCHAR(10) NOT NULL,
-    endPoint   VARCHAR(10) NOT NULL,
+    startPoint VARCHAR(10),-- NOT NULL,
+    endPoint   VARCHAR(10),-- NOT NULL,
     distance   FLOAT       NOT NULL,
-    roadName   VARCHAR(20),
+    roadName   VARCHAR(100),
     PRIMARY KEY (id, routeId)
 );
 
@@ -507,26 +509,26 @@ insert into route (id, vehicleId) values (19, 42);
 insert into route (id, vehicleId) values (20, 44);
 
 
-insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (1, '7/4/2021', '5/6/2022', 'DONE', 48, 16, 1);
-insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (2, '12/25/2021', '9/29/2022', 'DONE', 46, 8, 2);
-insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (3, '8/23/2021', '4/9/2022', 'DONE', 46, 42, 3);
-insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (4, '7/31/2021', '6/24/2022', 'WAITING', 50, 6, 4);
-insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (5, '7/3/2021', '9/13/2022', 'DOING', 50, 1, 5);
-insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (6, '12/8/2021', '9/22/2022', 'WAITING', 47, 2, 6);
-insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (7, '6/17/2021', '5/28/2022', 'DONE', 46, 22, 7);
-insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (8, '1/18/2022', '6/8/2022', 'DOING', 47, 36, 8);
-insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (9, '8/18/2021', '6/6/2022', 'DOING', 48, 10, 9);
-insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (10, '12/2/2021', '5/15/2022', 'DONE', 50, 7, 10);
-insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (11, '10/1/2021', '5/9/2022', 'DONE', 48, 25, 11);
-insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (12, '2/16/2022', '3/4/2022', 'WAITING', 49, 31, 12);
-insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (13, '9/20/2021', '5/27/2022', 'DONE', 49, 2, 13);
-insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (14, '9/15/2021', '9/16/2022', 'WAITING', 47, 37, 14);
-insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (15, '10/29/2021', '6/4/2022', 'WAITING', 48, 9, 15);
-insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (16, '6/19/2021', '11/16/2022', 'DONE', 46, 28, 16);
-insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (17, '6/1/2021', '4/19/2022', 'WAITING', 46, 20, 17);
-insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (18, '1/28/2022', '4/24/2022', 'WAITING', 47, 44, 18);
-insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (19, '8/24/2021', '5/16/2022', 'WAITING', 50, 16, 19);
-insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (20, '10/13/2021', '10/20/2022', 'DONE', 47, 3, 20);
+insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (1, str_to_date('7/4/2021', '%m/%d/%Y'), str_to_date('5/6/2022','%m/%d/%Y'), 'DONE', 48, 16, 1);
+insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (2, str_to_date('12/25/2021','%m/%d/%Y'), str_to_date('9/29/2022','%m/%d/%Y'), 'DONE', 46, 8, 2);
+insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (3, str_to_date('8/23/2021','%m/%d/%Y'), str_to_date('4/9/2022','%m/%d/%Y'), 'DONE', 46, 42, 3);
+insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (4, str_to_date('7/31/2021','%m/%d/%Y'), str_to_date('6/24/2022','%m/%d/%Y'), 'WAITING', 50, 6, 4);
+insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (5, str_to_date('7/3/2021','%m/%d/%Y'), str_to_date('9/13/2022','%m/%d/%Y'), 'DOING', 50, 1, 5);
+insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (6, str_to_date('12/8/2021','%m/%d/%Y'), str_to_date('9/22/2022','%m/%d/%Y'), 'WAITING', 47, 2, 6);
+insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (7, str_to_date('6/17/2021','%m/%d/%Y'), str_to_date('5/28/2022','%m/%d/%Y'), 'DONE', 46, 22, 7);
+insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (8, str_to_date('1/18/2022','%m/%d/%Y'), str_to_date('6/8/2022','%m/%d/%Y'), 'DOING', 47, 36, 8);
+insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (9, str_to_date('8/18/2021','%m/%d/%Y'), str_to_date('6/6/2022','%m/%d/%Y'), 'DOING', 48, 10, 9);
+insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (10, str_to_date('12/2/2021','%m/%d/%Y'), str_to_date('5/15/2022','%m/%d/%Y'), 'DONE', 50, 7, 10);
+insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (11, str_to_date('10/1/2021','%m/%d/%Y'), str_to_date('5/9/2022','%m/%d/%Y'), 'DONE', 48, 25, 11);
+insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (12, str_to_date('2/16/2022','%m/%d/%Y'), str_to_date('3/4/2022','%m/%d/%Y'), 'WAITING', 49, 31, 12);
+insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (13, str_to_date('9/20/2021','%m/%d/%Y'), str_to_date('5/27/2022','%m/%d/%Y'), 'DONE', 49, 2, 13);
+insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (14, str_to_date('9/15/2021', '%m/%d/%Y'), str_to_date('9/16/2022','%m/%d/%Y'), 'WAITING', 47, 37, 14);
+insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (15, str_to_date('10/29/2021','%m/%d/%Y'), str_to_date('6/4/2022','%m/%d/%Y'), 'WAITING', 48, 9, 15);
+insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (16, str_to_date('6/19/2021','%m/%d/%Y'), str_to_date('11/16/2022','%m/%d/%Y'), 'DONE', 46, 28, 16);
+insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (17, str_to_date('6/1/2021','%m/%d/%Y'), str_to_date('4/19/2022','%m/%d/%Y'), 'WAITING', 46, 20, 17);
+insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (18, str_to_date('1/28/2022','%m/%d/%Y'), str_to_date('4/24/2022','%m/%d/%Y'), 'WAITING', 47, 44, 18);
+insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (19, str_to_date('8/24/2021','%m/%d/%Y'), str_to_date('5/16/2022','%m/%d/%Y'), 'WAITING', 50, 16, 19);
+insert into task (id, createTime, workingTime, status, backofficerId, workerId, routeId) values (20, str_to_date('10/13/2021','%m/%d/%Y'), str_to_date('10/20/2022','%m/%d/%Y'), 'DONE', 47, 3, 20);
 
 
 insert into vehicle (id, carNumber, type, status, weight, fuelConsumption, capacity) values (1, '0781-7066', 'TRUCK', 'BROKEN', 11.68, 11.75, 24.41);
