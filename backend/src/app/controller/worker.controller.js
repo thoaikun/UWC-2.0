@@ -1,3 +1,4 @@
+const randexp = require('randexp')
 const WorkerModel = require('../model/worker.model')
 const WorkerView = require('../view/worker.view')
 
@@ -19,6 +20,7 @@ class WorkerController {
     }
 
     update(req, res) {
+        console.log(req.body)
         let id = Number.parseInt(req.params.id)
         let editedWorker = req.body
 
@@ -31,11 +33,11 @@ class WorkerController {
         let newWorker = req.body
 
         // create a random string password
-        let password = (Math.random() + 1).toString(36).substring(5)
+        let password = new randexp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$/).gen()
         newWorker.password = password
 
-        workerModel.create(newWorker, (result, message) => {
-            workerView.create(res, result, message)
+        workerModel.create(newWorker, (status, result, message, password) => {
+            workerView.create(res, status, result, message, password)
         })
     }
 

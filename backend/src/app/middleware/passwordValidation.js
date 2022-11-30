@@ -1,9 +1,9 @@
 const validatePassword = (req, res, next) => {
-    let password = req.body.newPassword
+    let password = req.body.newPassword || req.body.password
 
     let characterConstrain = /(\w+)/
     let capitalizationConstrain = /[A-Z]/
-    let specialCharacterConstrain = /[!@#^$*&]/
+    let specialCharacterConstrain = /(\W)/
 
     if (!password.match(characterConstrain))
         res.json({
@@ -18,7 +18,7 @@ const validatePassword = (req, res, next) => {
     else if (!password.match(specialCharacterConstrain)) 
         res.json({
             result: 'fail',
-            message: 'password must have special character [!,@,#,^,$,*,&]'
+            message: 'password must have special character'
         })
     else 
         next()
