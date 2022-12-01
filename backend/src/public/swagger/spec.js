@@ -39,28 +39,25 @@ const spec = {
             post: {
                 tags: ['Authentication'],
                 summary: 'Login in to system',
-                description: '',
-                consumes: ['multipart/form-data'],
+                consumes: ['application/json'],
                 produces: ['application/json'],
                 parameters: [
                     {
-                        'in': 'formData',
-                        name: 'username',
+                        in: 'body',
+                        name: 'email',
                         required: true,
                         schema: {
-                            type: 'string'
+                            type: 'object',
+                            properties: {
+                                email: {
+                                    type: 'string'
+                                },
+                                password: {
+                                    type: 'string'
+                                }
+                            }
                         },
-                        description: 'Username of account'
                     },
-                    {
-                        'in': 'formData',
-                        name: 'password',
-                        required: true,
-                        schema: {
-                            type: 'string'
-                        },
-                        description: 'Password of account'
-                    }
                 ],
                 responses: {
                     200: {
@@ -85,7 +82,7 @@ const spec = {
                         }
                     },
                     401: {
-                        description: 'Username or password is not correct',
+                        description: 'Email or password is not correct',
                         schema: {
                             properties: {
                                 result: {
@@ -97,16 +94,29 @@ const spec = {
                             }
                         }
                     }
-                },
-                security: []
+                }
             }
         },
         '/auth/logout': {
             patch: {
                 tags: ['Authentication'],
                 summary: 'Exit the system',
-                description: '',
                 produces: ['application/json'],
+                parameters: [
+                    {
+                        'in': 'body',
+                        name: 'refreshToken',
+                        required: true,
+                        schema: {
+                            type: 'object',
+                            properties: {
+                                refreshToken: {
+                                    type: 'string'
+                                }
+                            }
+                        }
+                    }
+                ],
                 responses: {
                     200: {
                         description: 'Logout success',
@@ -121,24 +131,27 @@ const spec = {
                             }
                         }
                     }
-                },
-                security: []
+                }
             }
         },
         '/auth/renew': {
             post: {
                 tags: ['Authentication'],
                 summary: 'Renew access token',
-                description: '',
-                consumes: ['multipart/form-data'],
+                consumes: ['application/json'],
                 produces: ['application/json'],
                 parameters: [
                     {
-                        'in': 'formData',
+                        in: 'body',
                         name: 'refreshToken',
                         required: true,
                         schema: {
-                            type: 'string'
+                            type: 'object',
+                            properties: {
+                                refreshToken: {
+                                    type: 'string'
+                                }
+                            }
                         },
                         description: 'Refresh token create when login'
                     }
@@ -173,8 +186,7 @@ const spec = {
                             }
                         }
                     }
-                },
-                security: []
+                }
             }
         },
 
@@ -219,44 +231,31 @@ const spec = {
             post: {
                 tags: ['Worker'],
                 summary: 'Create a new worker',
-                consumes: ['multipart/form-data'],
+                consumes: ['application/json'],
                 produces: ['application/json'],
                 parameters: [
                     {
-                        in: 'formData',
-                        name: 'email',
+                        in: 'body',
+                        name: 'body',
                         required: true,
                         schema: {
-                            type: 'string'
+                            type: 'object',
+                            properties: {
+                                email: {
+                                    type: 'string'
+                                },
+                                phone: {
+                                    type: 'string'
+                                },
+                                name: {
+                                    type: 'string'
+                                },
+                                role: {
+                                    type: 'string'
+                                }
+                            }
                         },
-                        description: 'worker\'s email'
-                    },
-                    {
-                        in: 'formData',
-                        name: 'phone',
-                        required: true,
-                        schema: {
-                            type: 'string'
-                        },
-                        description: 'worker\'s phone'
-                    },
-                    {
-                        in: 'formData',
-                        name: 'name',
-                        required: true,
-                        schema: {
-                            type: 'string'
-                        },
-                        description: 'worker\'s name'
-                    },
-                    {
-                        in: 'formData',
-                        name: 'role',
-                        required: true,
-                        schema: {
-                            type: 'string'
-                        },
-                        description: 'worker\'s role: Janitor | Collector'
+                        description: 'worker\'s info, role must be collector | janitor'
                     }
                 ],
                 responses: {
@@ -347,7 +346,7 @@ const spec = {
             patch: {
                 tags: ['Worker'],
                 summary: 'Update worker in the system by id',
-                consumes: ['multipart/form-data'],
+                consumes: ['application/json'],
                 produces: ['application/json'],
                 parameters: [
                     {
@@ -360,40 +359,27 @@ const spec = {
                         description: 'worker\'s id'
                     },
                     {
-                        in: 'formData',
-                        name: 'email',
+                        in: 'body',
+                        name: 'body',
                         required: false,
                         schema: {
-                            type: 'string'
+                            type: 'object',
+                            properties: {
+                                email: {
+                                    type: 'string'
+                                },
+                                phone: {
+                                    type: 'string'
+                                },
+                                name: {
+                                    type: 'string'
+                                },
+                                role: {
+                                    type: 'string'
+                                }
+                            }
                         },
-                        description: 'worker\'s email'
-                    },
-                    {
-                        in: 'formData',
-                        name: 'phone',
-                        required: false,
-                        schema: {
-                            type: 'string'
-                        },
-                        description: 'worker\'s phone'
-                    },
-                    {
-                        in: 'formData',
-                        name: 'name',
-                        required: false,
-                        schema: {
-                            type: 'string'
-                        },
-                        description: 'worker\'s name'
-                    },
-                    {
-                        in: 'formData',
-                        name: 'role',
-                        required: false,
-                        schema: {
-                            type: 'string'
-                        },
-                        description: 'worker\'s role: Janitor | Collector'
+                        description: 'Update info option, all are option, role must be collector | janitor'
                     }
                 ],
                 responses: {
@@ -470,7 +456,7 @@ const spec = {
             patch: {
                 tags: ['Worker'],
                 summary: 'Change worker password',
-                consumes: ['multipart/form-data'],
+                consumes: ['application/json'],
                 produces: ['application/json'],
                 parameters: [
                     {
@@ -483,22 +469,21 @@ const spec = {
                         description: 'worker\'s id'
                     },
                     {
-                        in: 'formData',
-                        name: 'oldPassword',
+                        in: 'body',
+                        name: 'body',
                         required: true,
                         schema: {
-                            type: 'string'
+                            type: 'object',
+                            properties: {
+                                oldPassword: {
+                                    type: 'string'
+                                },
+                                newPassword: {
+                                    type: 'string'
+                                }
+                            }
                         },
-                        description: 'worker\'s current password'
-                    },
-                    {
-                        in: 'formData',
-                        name: 'newPassword',
-                        required: true,
-                        schema: {
-                            type: 'string'
-                        },
-                        description: 'worker\'s new password'
+                        description: 'worker\'s current password and new password'
                     }
                 ],
                 responses: {
@@ -574,53 +559,34 @@ const spec = {
             post: {
                 tags: ['Vehicle'],
                 summary: 'Create a new vehicle',
-                consumes: ['multipart/form-data'],
+                consumes: ['application/json'],
                 produces: ['application/json'],
                 parameters: [
                     {
-                        in: 'formData',
-                        name: 'vehicleNumber',
+                        in: 'body',
+                        name: 'body',
                         required: true,
                         schema: {
-                            type: 'string'
+                            type: 'object',
+                            properties: {
+                                vehicleNumber: {
+                                    type: 'string'
+                                },
+                                type: {
+                                    type: 'string'
+                                },
+                                status: {
+                                    type: 'string'
+                                },
+                                weight: {
+                                    type: 'number'
+                                },
+                                fuelConsumption: {
+                                    type: 'number'
+                                }
+                            }
                         },
-                        description: 'vehicle\'s number'
-                    },
-                    {
-                        in: 'formData',
-                        name: 'type',
-                        required: true,
-                        schema: {
-                            type: 'string'
-                        },
-                        description: 'vehicle\'s type'
-                    },
-                    {
-                        in: 'formData',
-                        name: 'status',
-                        required: true,
-                        schema: {
-                            type: 'string'
-                        },
-                        description: 'vehicle\'s status'
-                    },
-                    {
-                        in: 'formData',
-                        name: 'weight',
-                        required: true,
-                        schema: {
-                            type: 'number'
-                        },
-                        description: 'vehicle\'s weight'
-                    },
-                    {
-                        in: 'formData',
-                        name: 'fuelConsumption',
-                        required: true,
-                        schema: {
-                            type: 'number'
-                        },
-                        description: 'vehicle\'s fuel consumption'
+                        description: 'vehicle\'s info\n Vehicle status must be GOOD | BROKEN\n Vehicle type must be TRUCK | TROLLER'
                     }
                 ],
                 responses: {
@@ -700,7 +666,7 @@ const spec = {
             patch: {
                 tags: ['Vehicle'],
                 summary: 'Update vehicle in the system by id',
-                consumes: ['multipart/form-data'],
+                consumes: ['application/json'],
                 produces: ['application/json'],
                 parameters: [
                     {
@@ -713,58 +679,33 @@ const spec = {
                         description: 'worker\'s id'
                     },
                     {
-                        in: 'formData',
-                        name: 'vehicleNumber',
-                        required: false,
+                        in: 'body',
+                        name: 'body',
+                        required: true,
                         schema: {
-                            type: 'string'
+                            type: 'object',
+                            properties: {
+                                vehicleNumber: {
+                                    type: 'string'
+                                },
+                                type: {
+                                    type: 'string'
+                                },
+                                status: {
+                                    type: 'string'
+                                },
+                                weight: {
+                                    type: 'number'
+                                },
+                                fuelConsumption: {
+                                    type: 'number'
+                                },
+                                managedBy: {
+                                    type: 'string'
+                                }
+                            }
                         },
-                        description: 'vehicle\'s number'
-                    },
-                    {
-                        in: 'formData',
-                        name: 'type',
-                        required: false,
-                        schema: {
-                            type: 'string'
-                        },
-                        description: 'vehicle\'s type'
-                    },
-                    {
-                        in: 'formData',
-                        name: 'status',
-                        required: false,
-                        schema: {
-                            type: 'string'
-                        },
-                        description: 'vehicle\'s status'
-                    },
-                    {
-                        in: 'formData',
-                        name: 'weight',
-                        required: false,
-                        schema: {
-                            type: 'number'
-                        },
-                        description: 'vehicle\'s weight'
-                    },
-                    {
-                        in: 'formData',
-                        name: 'fuelConsumption',
-                        required: false,
-                        schema: {
-                            type: 'number'
-                        },
-                        description: 'vehicle\'s fuel consumption'
-                    },
-                    {
-                        in: 'formData',
-                        name: 'managedBy',
-                        required: false,
-                        schema: {
-                            type: 'string'
-                        },
-                        description: 'vehicle\'s manager'
+                        description: 'vehicle\'s info\n All are option\n Vehicle status must be GOOD | BROKEN\n Vehicle type must be TRUCK | TROLLER'
                     }
                 ],
                 responses: {
@@ -888,7 +829,7 @@ const spec = {
                         schema: {
                             type: 'integer'
                         },
-                        description: 'vehicle\'s id'
+                        description: 'mcp\'s id'
                     }
                 ],
                 responses: {
@@ -929,7 +870,7 @@ const spec = {
             patch: {
                 tags: ['MCPs'],
                 summary: 'Update MCP status',
-                consumes: ['multipart/form-data'],
+                consumes: ['application/json'],
                 produces: ['application/json'],
                 parameters: [
                     {
@@ -939,14 +880,19 @@ const spec = {
                         schema: {
                             type: 'integer'
                         },
-                        description: 'worker\'s id'
+                        description: 'mcp\'s id'
                     },
                     {
-                        in: 'formData',
+                        in: 'body',
                         name: 'status',
                         required: true,
                         schema: {
-                            type: 'string'
+                            type: 'object',
+                            properties: {
+                                status: {
+                                    type: 'string'
+                                }
+                            }
                         },
                         description: 'mcp\'s status'
                     },
@@ -986,7 +932,7 @@ const spec = {
             patch: {
                 tags: ['MCPs'],
                 summary: 'Update MCP capacity',
-                consumes: ['multipart/form-data'],
+                consumes: ['application/json'],
                 produces: ['application/json'],
                 parameters: [
                     {
@@ -996,14 +942,19 @@ const spec = {
                         schema: {
                             type: 'integer'
                         },
-                        description: 'worker\'s id'
+                        description: 'mcp\'s id'
                     },
                     {
-                        in: 'formData',
+                        in: 'body',
                         name: 'capacity',
                         required: true,
                         schema: {
-                            type: 'string'
+                            type: 'object',
+                            properties: {
+                                capacity: {
+                                    type: 'string'
+                                }
+                            }
                         },
                         description: 'mcp\'s capacity'
                     },
@@ -1081,7 +1032,7 @@ const spec = {
             post: {
                 tags: ['Route'],
                 summary: 'Create a new route',
-                consumes: ['multipart/form-data'],
+                consumes: ['application/json'],
                 produces: ['application/json'],
                 parameters: [
                     {
@@ -1270,53 +1221,36 @@ const spec = {
             post: {
                 tags: ['Task'],
                 summary: 'Create a new task',
-                consumes: ['multipart/form-data'],
+                consumes: ['application/json'],
                 produces: ['application/json'],
                 parameters: [
                     {
-                        in: 'formData',
-                        name: 'workingTime',
+                        in: 'body',
+                        name: 'body',
                         required: true,
                         schema: {
-                            type: 'date'
+                            type: 'object',
+                            properties: {
+                                workingTime: {
+                                    type: 'string',
+                                    format: 'date'
+                                },
+                                status: {
+                                    type: 'string'
+                                },
+                                createBy: {
+                                    type: 'number'
+                                },
+                                doneBy: {
+                                    type: 'number'
+                                },
+                                route: {
+                                    type: 'number'
+                                },
+
+                            }
                         },
-                        description: 'task\'s working time'
-                    },
-                    {
-                        in: 'formData',
-                        name: 'status',
-                        required: true,
-                        schema: {
-                            type: 'string'
-                        },
-                        description: 'task\'s status'
-                    },
-                    {
-                        in: 'formData',
-                        name: 'createBy',
-                        required: true,
-                        schema: {
-                            type: 'number'
-                        },
-                        description: 'task\'s back officer id'
-                    },
-                    {
-                        in: 'formData',
-                        name: 'doneBy',
-                        required: true,
-                        schema: {
-                            type: 'number'
-                        },
-                        description: 'task\'s worker id'
-                    },
-                    {
-                        in: 'formData',
-                        name: 'route',
-                        required: true,
-                        schema: {
-                            type: 'number'
-                        },
-                        description: 'task\'s route'
+                        description: 'task\'s info\n Status must be WAITING | DOING | DONE \n createBy, doneBy, route are id'
                     }
                 ],
                 responses: {
@@ -1452,7 +1386,7 @@ const spec = {
             patch: {
                 tags: ['Task'],
                 summary: 'Update task accept time in the system by id',
-                consumes: ['multipart/form-data'],
+                consumes: ['application/json'],
                 produces: ['application/json'],
                 parameters: [
                     {
@@ -1465,12 +1399,17 @@ const spec = {
                         description: 'task\'s id'
                     },
                     {
-                        in: 'formData',
+                        in: 'body',
                         name: 'acceptTime',
                         required: true,
                         schema: {
-                            type: 'string',
-                            format: 'date',
+                            type: 'object',
+                            properties: {
+                                acceptTime: {
+                                    type: 'string',
+                                    format: 'date',
+                                }
+                            }
                         },
                         description: 'task\'s accept time'
                     }
@@ -1510,7 +1449,7 @@ const spec = {
             patch: {
                 tags: ['Task'],
                 summary: 'Update task done time in the system by id',
-                consumes: ['multipart/form-data'],
+                consumes: ['application/json'],
                 produces: ['application/json'],
                 parameters: [
                     {
@@ -1523,12 +1462,17 @@ const spec = {
                         description: 'task\'s id'
                     },
                     {
-                        in: 'formData',
+                        in: 'body',
                         name: 'doneTime',
                         required: true,
                         schema: {
-                            type: 'string',
-                            format: 'date',
+                            type: 'object',
+                            properties: {
+                                doneTime: {
+                                    type: 'string',
+                                    format: 'date',
+                                }
+                            }
                         },
                         description: 'task\'s done time'
                     }

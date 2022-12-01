@@ -10,7 +10,7 @@ class WorkerView {
         }
         else {
             res.status(400).json({
-                result: 'success',
+                result: 'fail',
                 message: 'something wrong happened, please try again',
                 size: null,
                 workers: null
@@ -41,10 +41,11 @@ class WorkerView {
         })
     }
 
-    create(res, result, message) {
-        res.status(result ? 200 : 400).json({
+    create(res, status, result, message, password) {
+        res.status(status).json({
             result: result ? 'success' : 'fail',
-            message
+            message,
+            password
         })
     }
 
