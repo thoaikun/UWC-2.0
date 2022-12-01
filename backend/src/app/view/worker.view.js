@@ -10,7 +10,7 @@ class WorkerView {
         }
         else {
             res.status(400).json({
-                result: 'success',
+                result: 'fail',
                 message: 'something wrong happened, please try again',
                 size: null,
                 workers: null
