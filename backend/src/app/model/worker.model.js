@@ -30,11 +30,11 @@ class WorkerModel extends Model {
 
     update(id, editedWorker, callback) {
         this.query(
-            `SELECT isIdExist(?)`,
+            `SELECT isAccountExist(?)`,
             [id]
         )
             .then(results => {
-                if (!id || results[0][`isIdExist(${id})`] === 0)
+                if (!id || results[0][`isAccountExist(${id})`] === 0)
                     throw  Error('invalid id')
                 else {
                     if (editedWorker.role !== undefined) {
@@ -135,11 +135,11 @@ class WorkerModel extends Model {
 
     delete(id, callback) {
         this.query(
-            `SELECT isIdExist(?)`,
+            `SELECT isAccountExist(?)`,
             [id]
         )
             .then(results => {
-                if (results[0][`isIdExist(${id})`] === 0)
+                if (results[0][`isAccountExist(${id})`] === 0)
                     throw Error('invalid id')
                 else
                     return this.query(

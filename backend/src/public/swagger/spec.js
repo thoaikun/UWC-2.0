@@ -1028,68 +1028,70 @@ const spec = {
                 ]
             }
         },
-        '/route/create': {
-            post: {
-                tags: ['Route'],
-                summary: 'Create a new route',
-                consumes: ['application/json'],
-                produces: ['application/json'],
-                parameters: [
-                    {
-                        in: 'formData',
-                        name: 'vehicleNumber',
-                        required: true,
-                        schema: {
-                            type: 'string'
-                        },
-                        description: 'vehicle\'s number'
-                    },
-                    {
-                        in: 'body',
-                        name: 'paths',
-                        required: true,
-                        schema: {
-                            type: 'array',
-                            items: { $ref: '#/definitions/path' }
-                        },
-                        description: 'route\'s path'
-                    },
-                    {
-                        in: 'body',
-                        name: 'MCPs',
-                        required: true,
-                        schema: {
-                            type: 'array',
-                            items: { $ref: '#/definitions/briefmcp' }
-                        },
-                        description: 'vehicle\'s fuel consumption'
-                    }
-                ],
-                responses: {
-                    200: {
-                        description: 'Create worker success',
-                        schema: {
-                            $ref: '#/definitions/message'
-                        }
-                    },
-                    401: {
-                        description: 'User is unauthorized',
-                        schema: {
-                            $ref: '#/definitions/message'
-                        }
-                    },
-                    405: {
-                        description: 'Invalid input',
-                        schema: {
-                            $ref: '#/definitions/message'
-                        }
-                    }
-                },
-                security: [
-                    {"bearerAuth": []}
-                ]
-            },
-        },
+        // '/route/create': {
+        //     post: {
+        //         tags: ['Route'],
+        //         summary: 'Create a new route',
+        //         consumes: ['application/json'],
+        //         produces: ['application/json'],
+        //         parameters: [
+        //             {
+        //                 in: 'formData',
+        //                 name: 'vehicleNumber',
+        //                 required: true,
+        //                 schema: {
+        //                     type: 'string'
+        //                 },
+        //                 description: 'vehicle\'s number'
+        //             },
+        //             {
+        //                 in: 'body',
+        //                 name: 'paths',
+        //                 required: true,
+        //                 schema: {
+        //                     type: 'array',
+        //                     items: { $ref: '#/definitions/path' }
+        //                 },
+        //                 description: 'route\'s path'
+        //             },
+        //             {
+        //                 in: 'body',
+        //                 name: 'MCPs',
+        //                 required: true,
+        //                 schema: {
+        //                     type: 'array',
+        //                     items: {
+        //                         type: 'number'
+        //                     }
+        //                 },
+        //                 description: 'mcps\'s id'
+        //             }
+        //         ],
+        //         responses: {
+        //             200: {
+        //                 description: 'Create worker success',
+        //                 schema: {
+        //                     $ref: '#/definitions/message'
+        //                 }
+        //             },
+        //             401: {
+        //                 description: 'User is unauthorized',
+        //                 schema: {
+        //                     $ref: '#/definitions/message'
+        //                 }
+        //             },
+        //             405: {
+        //                 description: 'Invalid input',
+        //                 schema: {
+        //                     $ref: '#/definitions/message'
+        //                 }
+        //             }
+        //         },
+        //         security: [
+        //             {"bearerAuth": []}
+        //         ]
+        //     },
+        // },
         '/route/{id}': {
             get: {
                 tags: ['Route'],
@@ -1336,7 +1338,7 @@ const spec = {
                 parameters: [
                     {
                         in: 'path',
-                        name: 'id',
+                        name: 'userId',
                         required: true,
                         schema: {
                             type: 'integer'
@@ -1382,7 +1384,7 @@ const spec = {
                 ]
             },
         },
-        'task/updateAcceptTime/{id}': {
+        '/task/updateAcceptTime/{id}': {
             patch: {
                 tags: ['Task'],
                 summary: 'Update task accept time in the system by id',
@@ -1445,7 +1447,7 @@ const spec = {
                 ]
             },
         },
-        'task/updateDoneTime/{id}': {
+        '/task/updateDoneTime/{id}': {
             patch: {
                 tags: ['Task'],
                 summary: 'Update task done time in the system by id',

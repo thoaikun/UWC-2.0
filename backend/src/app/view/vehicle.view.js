@@ -1,4 +1,4 @@
-class VehiceView {
+class VehicleView {
     getAll(res, vehicles) {
         if (vehicles) {
             res.status(200).json({
@@ -29,28 +29,28 @@ class VehiceView {
         else {
             res.status(status).json({
                 result: 'fail',
-                message: 'id not exist or something wrong happend',
+                message: 'id not exist or something wrong happened',
             })
         }
     }
 
     update(res, status, message) {
         res.status(status).json({
-            result: status==200 ? 'success' : 'fail',
+            result: status === 200 ? 'success' : 'fail',
             message: message
         })
     }
 
     create(res, status, message) {
         res.status(status).json({
-            result: status==200 ? 'success' : 'fail',
+            result: status === 200 ? 'success' : 'fail',
             message: message
         })
     }
 
     delete(res, status, message) {
         res.status(status).json({
-            result: status==200 ? 'success' : 'fail',
+            result: status === 200 ? 'success' : 'fail',
             message: message
         })
     }

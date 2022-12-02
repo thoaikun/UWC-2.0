@@ -22,7 +22,7 @@ class VehicleController {
         let id = Number.parseInt(req.params.id)
         let editedVehicle = req.body
 
-        vehicleModel.update(id, editedWorker, (status, message) => {
+        vehicleModel.update(id, editedVehicle, (status, message) => {
             vehicleView.update(res, status, message)
         })
     }

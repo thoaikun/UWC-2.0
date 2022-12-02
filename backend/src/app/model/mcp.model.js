@@ -5,7 +5,7 @@ class McpModel extends Model {
         super()
     }
 
-    getAll(callback) {              //callback(result)
+    getAll(callback) {
         this.conn.query(
             'SELECT m.id, m.totalCapacity, m.status, m.address, m.inUse FROM mcp m',
             (error, result) => {
@@ -18,7 +18,7 @@ class McpModel extends Model {
         )
     }
 
-    get(id, callback){              //id: int, callback(code, result)
+    get(id, callback){
         this.conn.query(
             'SELECT m.id, m.totalCapacity, m.status, m.address, m.inUse FROM mcp m WHERE m.id = ?',
             [id],
@@ -32,7 +32,7 @@ class McpModel extends Model {
     }
 
 
-    updateStatus(id, status, callback) {        //id: int, status: string, callback(code)        
+    updateStatus(id, status, callback) {
         this.conn.query(
             'SELECT m.id FROM mcp m WHERE m.id = ?',
             [id],
@@ -59,8 +59,7 @@ class McpModel extends Model {
         )
     }
 
-
-    updateCapacity(id, capacity, callback) {        //int: id, capacity: float, callback(code)
+    updateCapacity(id, capacity, callback) {
         this.conn.query(
             'SELECT m.id FROM mcp m WHERE m.id = ?',
             [id],
@@ -71,7 +70,7 @@ class McpModel extends Model {
                         return callback(405)      // invalid capacity
                 else {
                     this.conn.query(
-                        'UPDATE mcp SET totalCapacity =? WHERE id =?',
+                        'UPDATE mcp SET inUse =? WHERE id =?',
                         [capacity, id],
                         (error, result) => {
                             if (error)
@@ -81,12 +80,9 @@ class McpModel extends Model {
                         }
                     )
                 }
-                
             }
-            
         )
     }
-
 }
 
 module.exports = McpModel

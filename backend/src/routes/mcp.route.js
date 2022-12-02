@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-
 //import controller and middleware for mcp
 const mcpController = require('../app/controller/mcp.controller')
 

@@ -28,12 +28,11 @@ class McpController{
 
     updateCapacity(req, res){
         let id = Number.parseInt(req.params.id)
-        let capacity = req.body.capacity        //float or string ??
+        let capacity = Number.parseFloat(req.body.capacity)
         mcpModel.updateCapacity(id, capacity,
             (code) => {mcpView.updateCapacity(res, code)}
         )
     }
-
 }
 
 module.exports = new McpController

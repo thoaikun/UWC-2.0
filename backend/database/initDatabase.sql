@@ -42,11 +42,11 @@ CREATE TABLE vehicle
 CREATE TABLE task
 (
     id            INT AUTO_INCREMENT,
-    createTime    DATETIME                          NOT NULL,
-    workingTime   DATETIME,
+    createTime    DATE                          NOT NULL,
+    workingTime   DATE,
     status        ENUM ('WAITING', 'DOING', 'DONE') NOT NULL,
-    acceptTime    DATETIME,
-    doneTime      DATETIME,
+    acceptTime    DATE,
+    doneTime      DATE,
     backofficerId INT,
     workerId      INT,
     routeId       INT,
@@ -1144,7 +1144,7 @@ ALTER TABLE manage
     ADD CONSTRAINT managee FOREIGN KEY (workerId) REFERENCES worker (id) ON DELETE CASCADE;
 
 ALTER TABLE road
-    ADD CONSTRAINT roadBelongToRoute FOREIGN KEY (routeId) REFERENCES route (id);
+    ADD CONSTRAINT roadBelongToRoute FOREIGN KEY (routeId) REFERENCES route (id) ON DELETE CASCADE ;
 
 ALTER TABLE route
     ADD CONSTRAINT routeUseVehicle FOREIGN KEY (vehicleId) REFERENCES vehicle (id) ON DELETE SET NULL;
@@ -1156,10 +1156,95 @@ ALTER TABLE mcpInRoute
 
 
 DELIMITER $$
-CREATE OR REPLACE FUNCTION isIdExist(inputId INT) RETURNS BOOLEAN
+CREATE OR REPLACE FUNCTION isAccountExit(inputId INT) RETURNS BOOLEAN
     DETERMINISTIC
 BEGIN
-    RETURN (EXISTS(SELECT id FROM  account WHERE id = inputId));
+    RETURN (EXISTS(SELECT id FROM account WHERE id = inputId));
 END;
 $$
 DELIMITER ;
+
+CREATE OR REPLACE PROCEDURE getTaskByWorker(IN userId INT)
+BEGIN
+    IF NOT EXISTS(SELECT id FROM worker WHERE id = userId) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = _utf8 'invalid id';
+    END IF;
+
+    START TRANSACTION;
+    SELECT T.id,
+           T.createTime,
+           T.workingTime,
+           T.status,
+           T.acceptTime,
+           T.doneTime,
+           T.routeId,
+           BO.name AS createBy,
+           WO.name AS doneBy
+    FROM task T,
+         account BO,
+         account WO
+    WHERE T.backofficerId = BO.id
+      AND WO.id = T.workerId
+      AND T.workerId = userId;
+    COMMIT;
+END;
+
+CREATE OR REPLACE PROCEDURE insertTask(IN workingTime DATE, IN status VARCHAR(10), IN backofficerId INT,
+                                       IN workerId INT, IN routeId INT)
+BEGIN
+    IF (workingTime IS NULL || LENGTH(workingTime) = 0) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = _utf8 'working time is empty';
+    END IF;
+    IF (STRCMP(status, 'WAITING') != 0 && STRCMP(status, 'DOING') != 0 && STRCMP(status, 'DONE') != 0) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = _utf8 'invalid status value';
+    END IF;
+    IF NOT EXISTS(SELECT id FROM backofficer WHERE id = backofficerId) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = _utf8 'invalid back officer id';
+    END IF;
+    IF NOT EXISTS(SELECT id FROM worker WHERE id = workerId) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = _utf8 'invalid worker id';
+    END IF;
+    IF NOT EXISTS(SELECT id FROM route WHERE id = routeId) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = _utf8 'invalid route id';
+    END IF;
+
+    START TRANSACTION;
+    INSERT INTO task(createTime, workingTime, status, acceptTime, doneTime, backofficerId, workerId,
+                     routeId) VALUE (CURDATE(), workingTime, status, NULL, NULL, backofficerId, workerId, routeId);
+    COMMIT;
+END;
+
+CREATE OR REPLACE PROCEDURE updateTaskAcceptTime(IN acceptTime VARCHAR(20), IN taskId INT)
+BEGIN
+    IF NOT EXISTS(SELECT id FROM task WHERE id = taskId) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = _utf8 'invalid id';
+    END IF;
+    IF (acceptTime IS NULL || LENGTH(acceptTime) = 0) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = _utf8 'accept time is empty';
+    END IF;
+
+    START TRANSACTION;
+    UPDATE task SET acceptTime = acceptTime WHERE id = taskId;
+    COMMIT ;
+END;
+
+CREATE OR REPLACE PROCEDURE updateTaskDoneTime(IN doneTime VARCHAR(20), IN taskId INT)
+BEGIN
+    IF NOT EXISTS(SELECT id FROM task WHERE id = taskId) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = _utf8 'invalid id';
+    END IF;
+    IF (doneTime IS NULL || LENGTH(doneTime) = 0) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = _utf8 'done time is empty';
+    END IF;
+
+    START TRANSACTION;
+    UPDATE task SET doneTime = doneTime WHERE id = taskId;
+    COMMIT ;
+END;
+
+CREATE OR REPLACE PROCEDURE appendRoadToRoute(IN roadId INT, IN routeId INT)
+BEGIN
+    IF NOT EXISTS(SELECT * FROM road WHERE id = roadId) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = _utf8 'invalid road id';
+    END IF;
+END;
