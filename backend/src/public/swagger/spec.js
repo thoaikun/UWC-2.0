@@ -5,7 +5,7 @@ const spec = {
         version: '1.0.0',
         title: 'UWC 2.0'
     },
-    host: 'localhost:3000',
+    host: 'https://uwc-backend.onrender.com',
     basePath: '',
     tags: [
         {
@@ -33,7 +33,7 @@ const spec = {
             description: 'Task\'s information, create, update, ...'
         }
     ],
-    schemes: ['http', 'https'],
+    schemes: ['https'],
     paths: {
         '/auth/login': {
             post: {
