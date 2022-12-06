@@ -5,7 +5,7 @@ const spec = {
         version: '1.0.0',
         title: 'UWC 2.0'
     },
-    host: 'https://uwc-backend.onrender.com',
+    host: 'https://uwc-2.onrender.com',
     basePath: '',
     tags: [
         {
