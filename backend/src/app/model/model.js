@@ -3,7 +3,7 @@ const mysql = require('mysql')
 const database = {
     host     : 'iu51mf0q32fkhfpl.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
     user     : 'gx09dow97kh2f5yb',
-    password : 'zr0if28yo7ywwdmx',
+    password : 'eyou37vuyevtmfew',
     database : 'ylwwsln7lqj7l71x'
 }
 
