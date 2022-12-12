@@ -58,13 +58,13 @@ class VehicleModel extends Model {
                 query = query.concat(`status = '${updateInfo.status}'`)
             }
 
-            if (updateInfo.weight !== 0) {
+            if (updateInfo.weight !== "0") {
                 if (query !== "")
                     query = query.concat(", ")
                 query = query.concat(`weight = ${updateInfo.weight}`)
             }
 
-            if (updateInfo.fuelConsumption !== 0) {
+            if (updateInfo.fuelConsumption !== "0") {
                 if (query !== "")
                     query = query.concat(", ")
                 query = query.concat(`fuelConsumption = ${updateInfo.fuelConsumption}`)
