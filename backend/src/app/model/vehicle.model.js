@@ -40,31 +40,31 @@ class VehicleModel extends Model {
 
             // check parameter in request
             let query = ""
-            if (updateInfo.vehicleNumber !== undefined) {
+            if (updateInfo.vehicleNumber !== "") {
                 if (query !== "")
                     query = query.concat(", ")
                 query = query.concat(`carNumber = '${updateInfo.vehicleNumber}'`)
             }
 
-            if (updateInfo.type !== undefined) {
+            if (updateInfo.type !== "") {
                 if (query !== "")
                     query = query.concat(", ")
                 query = query.concat(`type = '${updateInfo.type}'`)
             }
 
-            if (updateInfo.status !== undefined) {
+            if (updateInfo.status !== "") {
                 if (query !== "")
                     query = query.concat(", ")
                 query = query.concat(`status = '${updateInfo.status}'`)
             }
 
-            if (updateInfo.weight !== undefined) {
+            if (updateInfo.weight !== 0) {
                 if (query !== "")
                     query = query.concat(", ")
                 query = query.concat(`weight = ${updateInfo.weight}`)
             }
 
-            if (updateInfo.fuelConsumption !== undefined) {
+            if (updateInfo.fuelConsumption !== 0) {
                 if (query !== "")
                     query = query.concat(", ")
                 query = query.concat(`fuelConsumption = ${updateInfo.fuelConsumption}`)
@@ -80,6 +80,7 @@ class VehicleModel extends Model {
             if (query !== "") {
                 this.conn.query(`UPDATE vehicle SET ${query} WHERE id = ${id}`,
                 (error, results) => {
+                    console.log(error);
                     if (error) 
                         return callback(405, "invalid input or something wrong happens")
                     else return callback(200, 'vehicle has been updated')
@@ -101,6 +102,7 @@ class VehicleModel extends Model {
                 fuelConsumption: newVehicle.fuelConsumption
             },
             (error, results) => {
+                console.log(error);
                 if (error)
                     callback(405, "invalid input or something wrong happens")
                 else 
