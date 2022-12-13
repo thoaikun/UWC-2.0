@@ -91,7 +91,7 @@ class WorkerModel extends Model {
             ))
             .then(results => this.query(
                 'INSERT INTO worker  VALUES (?, ?, ?)',
-                [results.insertId, newWorker.role === 'Collector', newWorker.role !== 'Collector']
+                [results.insertId, newWorker.role === 'collector', newWorker.role !== 'collector']
             ))
             .then(() => callback(200, true, 'Create success', newWorker.password))
             .catch((error) => {
