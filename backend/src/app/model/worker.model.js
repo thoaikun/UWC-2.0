@@ -39,7 +39,7 @@ class WorkerModel extends Model {
                 else {
                     if (editedWorker.role !== undefined) {
                         let query = ''
-                        if (editedWorker.role === 'collector')
+                        if (editedWorker.role === 'Collector')
                             query = `UPDATE worker W SET W.fCollector = 1, W.fJanitor = 0 WHERE W.id = ${id}`
                         else
                             query = `UPDATE worker W SET W.fCollector = 0, W.fJanitor = 1 WHERE W.id = ${id}`
@@ -70,6 +70,7 @@ class WorkerModel extends Model {
                 }
             })
             .catch(error => {
+                console.log(error);
                 if (error.message === 'invalid id')
                     callback(404, false, error.message)
                 else
@@ -151,6 +152,7 @@ class WorkerModel extends Model {
                 callback(200, true, 'delete success')
             })
             .catch(error => {
+                console.log(error);
                 if (error.message === 'invalid id')
                     callback(406, false, error.message)
                 else
