@@ -8,6 +8,7 @@ const passwordValidation = require('../app/middleware/passwordValidation')
 const verifyRole = require('../app/middleware/verifyRole')
 
 router.get('/', verifyRole(['back officer']), workerController.getAll)
+router.get('/getIdByEmail', verifyRole(['back officer', 'worker']), workerController.getIdByEmail)
 router.get('/:id', verifyRole(['back officer', 'worker']), workerController.get)
 router.delete('/:id', verifyRole(['back officer']), workerController.delete)
 router.patch('/changePassword/:id', verifyRole(['worker']), passwordValidation, workerController.changePassword)

@@ -28,6 +28,25 @@ class WorkerModel extends Model {
             .catch(() => callback(404, null))
     }
 
+    getIdByEmail(email, callback) {
+        this.query(
+            'SELECT * FROM account WHERE email=?',
+            [email]
+        )
+            .then(results => {
+                if (results.length === 0)
+                    throw Error('Email doesn\'t exists')
+                else 
+                    callback(200, results[0].id)
+            })
+            .catch(error => {
+                if (error.message === 'Email doesn\'t exists')
+                    callback(405, null, error.message)
+                else 
+                    callback(400, null, 'Something were wrong, please try again')
+            })
+    }
+
     update(id, editedWorker, callback) {
         this.query(
             `SELECT isAccountExist(?)`,

@@ -33,7 +33,7 @@ class AccountModel extends Model {
             })
             .then(results => {
                 let accessToken, refreshToken
-                let role
+                let role = ''
 
                 if (results.length === 0) {
                     accessToken = jwt.sign(

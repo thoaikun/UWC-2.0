@@ -34,6 +34,21 @@ class WorkerView {
         }
     }
 
+    getIdByEmail(res, status, id, message) {
+        if (id) {
+            res.status(status).json({
+                result: 'success',
+                id
+            })
+        }
+        else {
+            res.status(status).json({
+                result: 'fail',
+                message
+            })
+        }
+    }
+
     update(res, status, result, message) {
         res.status(status).json({
             result: result ? 'success' : 'fail',

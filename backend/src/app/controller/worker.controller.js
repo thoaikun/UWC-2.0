@@ -19,8 +19,14 @@ class WorkerController {
         })
     }
 
+    getIdByEmail(req, res) {
+        let email = req.body.email
+        workerModel.getIdByEmail(email, (status, id, message) => {
+            workerView.getIdByEmail(res, status, id, message)
+        })
+    }
+
     update(req, res) {
-        console.log(req.body)
         let id = Number.parseInt(req.params.id)
         let editedWorker = req.body
 
