@@ -1,10 +1,11 @@
 class AuthView {
-    login(res, status, result, message, accessToken ,refreshToken) {
+    login(res, status, result, message, accessToken ,refreshToken, role) {
         res.status(status).json({
             result: result ? 'success' : 'fail',
             message,
             accessToken,
-            refreshToken
+            refreshToken,
+            role
         })
     }
 

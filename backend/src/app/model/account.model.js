@@ -33,6 +33,7 @@ class AccountModel extends Model {
             })
             .then(results => {
                 let accessToken, refreshToken
+                let role
 
                 if (results.length === 0) {
                     accessToken = jwt.sign(
@@ -51,6 +52,7 @@ class AccountModel extends Model {
                         process.env.REFRESH_TOKEN_SECRET,
                         { expiresIn: '1d' }
                     )
+                    role = 'back officer'
                 }
                 else {
                     accessToken = jwt.sign(
@@ -69,13 +71,14 @@ class AccountModel extends Model {
                         process.env.REFRESH_TOKEN_SECRET,
                         { expiresIn: '1d' }
                     )
+                    role = 'worker'
                 }
 
                 return this.query(
                     'UPDATE account SET refreshToken = ? WHERE email = ?',
                     [refreshToken, email]
                 )
-                    .then(() => callback(200, true, 'login success', accessToken, refreshToken))
+                    .then(() => callback(200, true, 'login success', accessToken, refreshToken, role))
                     .catch(() => callback(400, false, 'something were wrong, please try again'))
             })
             .catch(error => {
