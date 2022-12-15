@@ -1,0 +1,52 @@
+\section{Hiện thực ứng dụng}
+    \subsection{Tìm hiểu công nghệ}
+        \begin{enumerate}
+            \item \textbf{NodeJS:}
+                NodeJS là một trình thông dịch thực thi mã JavaScript, giúp xây dựng các ứng dụng web một cách đơn giản và dễ dàng mở rộng. Nó hỗ trợ sử dụng trên đa nền tảng và áp dụng vào các ứng dụng đòi hỏi sự thay đồi thơi gian thực. Tiêu chuẩn RESTful API cũng được áp dụng khi ta dùng NodeJS làm nển tảng cho Backend của hệ thống, từ đó kết nối với framework ExpressJS cũng do NodeJS phát triển.
+
+            \item \textbf{ExpressJS:}
+                ExpressJS là một framework mã nguồn mở miễn phí của Node.js cho thiết kế và xây dựng các ứng dụng web một cách đơn giản và nhanh chóng. Ta có thể dùng nó để tạo ra các API đơn giản cho hệ thống với giao thức HTTP để nhận về response ở định dạng JSON.
+
+            \item \textbf{ReactJS:}
+                Reactjs là một thư viện Javascript để xây dựng giao diện (UI) cho người dùng. Ba đặc điểm khác biệt của reactjs là Virtual DOM (mô hình đối tượng dữ liệu cho phép truy xuất thao tác HTML/XML), Component và khả năng render các component. Nhờ đó, ta có thể dễ dàng các thành phần của trang web, tối ưu làm mới dữ liệu.
+
+            \item \textbf{Tailwind:}
+                Tailwind cũng giống như Bootstrap, nó có những class built-in mà chúng ta có thể dùng. Tailwind có nhiều các class bao gồm các thuộc tính khác nhau và quan trọng, chúng ta có thể dễ dàng mở rộng tạo mới ra những class bằng chính những class của nó. Nói chung là nó cũng na ná Boostrap thôi nhưng một điều tiện lợi khi dùng framework này là chúng ta có nhiều class mới hơn tiện lợi hơn Boostrap. Và hơn nữa, việc có nhiều thêm những class nhưng với quy tắc đặt tên cực kỳ thân thiện với người dùng, người dùng cũng có thể nhìn vào class đó và có thể biết được class này nó đang style cái gì. Chúng ta cũng phải nói đến khả năng tùy biến và mở rộng cao, đem đến cho ta sự linh hoạt không giới hạn.
+
+            \item \textbf{MariaDB:}
+                MariaDB là một hệ thống quản lý cơ sở dữ liệu quan hệ. MariaDB có cú pháp sử dụng tương tự SQL nhưng mở rộng và hỗ trợ nhiều hơn thông qua nhiều nền tảng. Các bước liên kết mySQL tới ứng dụng.
+        \end{enumerate}
+            
+    \subsection{Yêu cầu phiên bản}
+        \begin{enumerate}
+            \item \textbf{Backend}
+            \begin{itemize}
+                \item NodeJS: v18
+                \item ExpressJS: v4.18.2
+                \item MariaDB: v10.4.27
+            \end{itemize}
+            \item \textbf{Frontend}
+            \begin{itemize}
+                \item NodeJS: v18
+                \item ReactJS: v18.0.24
+                \item TailwindCSS: v3.2.4
+                \item Vite: v3.2.2
+            \end{itemize}
+        \end{enumerate}    
+
+    \subsection{Giao diện hiện thực}
+        \quad Trang web được thiết kế cho 3 nhóm người dùng cơ bản bao gồm: backofficer ,collector và janitor. Khi truy cập vào hệ thống, mọi người đều có thể thực hiện các tác vụ cơ bản như đăng nhập, đăng xuất, nhắn tin, xem thông tin cá nhân.\\
+
+        \quad Để có thể sử dụng các chức năng mở rộng, hệ thống yêu cầu xác thực thông tin qua tài khoản đã đăng ký. Sau đó, trang web sẽ chuyển hướng đến giao diện trung tâm cho mỗi cá nhân. \\ \\
+        \textbf{\textit{Video demo ứng dụng: }}
+        \href{https://drive.google.com/file/d/1Ua2RockEShpA551Xof8fn6BTckJMNLml/view?usp=share_link}{Video present}
+
+
+    \subsection{Mã Nguồn}
+        \begin{enumerate}
+            \item \textbf{Backend:}
+            \href{https://github.com/thoaikun/Urban-Waste-Collection-2.0}{Github respository backend}
+            \item \textbf{Frontend:}
+            \href{https://github.com/smartkiiwii/Urban-Waste-Collection-2.0-Front-End}{Github respository frontend}
+        \end{enumerate}
+            
