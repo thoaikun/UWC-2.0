@@ -9,7 +9,7 @@ const verifyJWT = require('../app/middleware/verifyJWT')
 
 const route = (app) => {
     app.use('/auth', authRoute)
-    app.use(verifyJWT)
+    // app.use(verifyJWT)
     app.use('/worker', workerRoute)
     app.use('/mcp', mcpRoute)
     app.use('/vehicle', vehicleRoute)

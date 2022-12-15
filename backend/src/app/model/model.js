@@ -7,6 +7,13 @@ const database = {
     database : 'ylwwsln7lqj7l71x'
 }
 
+// const database = {
+//     host     : 'localhost',
+//     user     : 'root',
+//     password : '',
+//     database : 'uwc'
+// }
+
 class Model {
     constructor() {
         this.conn = mysql.createConnection(database)

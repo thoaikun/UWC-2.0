@@ -75,6 +75,22 @@ class TaskModel extends Model {
             })
     }
 
+    getTaskByDate(userId, date, callback) {
+        this.query(
+            'CALL getTaskByDate(?, ?)',
+            [userId, date]
+        )
+            .then(results => {
+                callback(200, results[0])
+            })
+            .catch(error => {
+                if (error === 'invalid id')
+                    callback(404, null)
+                else
+                    callback(400, null)
+            })
+    }
+
     create(workingTime, status, backofficerId, workerId, routeId, callback) {
         this.query(
             'CALL insertTask(?, ?, ?, ?, ?)',

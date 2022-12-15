@@ -25,6 +25,14 @@ class TaskController {
         })
     }
 
+    getTaskByDate(req, res) {
+        let userId = Number.parseInt(req.body.userId)
+        let date = req.body.date
+        taskModel.getTaskByDate(userId, date, (status, tasks) => {
+            taskView.getTaskByDate(res, status, tasks)
+        })
+    }
+
     create(req, res) {
         let workingTime = req.body.workingTime
         let status = req.body.status
