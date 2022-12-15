@@ -34,11 +34,11 @@ class WorkerView {
         }
     }
 
-    getIdByEmail(res, status, id, message) {
-        if (id) {
+    getInfoByEmail(res, status, worker, message) {
+        if (worker) {
             res.status(status).json({
                 result: 'success',
-                id
+                worker
             })
         }
         else {

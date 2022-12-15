@@ -11,7 +11,10 @@ class WorkerModel extends Model {
             'SELECT W.id, A.name, A.email, A.phone, W.fCollector, W.fJanitor FROM worker W, account A WHERE A.id = W.id',
         )
             .then(results => callback(results))
-            .catch(() => callback(null))
+            .catch((error) => {
+                console.log(error)
+                callback(null)
+            })
     }
 
     get(id, callback) {
@@ -28,7 +31,7 @@ class WorkerModel extends Model {
             .catch(() => callback(404, null))
     }
 
-    getIdByEmail(email, callback) {
+    getInfoByEmail(email, callback) {
         this.query(
             'SELECT * FROM account WHERE email=?',
             [email]
@@ -37,7 +40,7 @@ class WorkerModel extends Model {
                 if (results.length === 0)
                     throw Error('Email doesn\'t exists')
                 else 
-                    callback(200, results[0].id)
+                    callback(200, results[0])
             })
             .catch(error => {
                 if (error.message === 'Email doesn\'t exists')
@@ -49,40 +52,52 @@ class WorkerModel extends Model {
 
     update(id, editedWorker, callback) {
         this.query(
-            `SELECT isAccountExist(?)`,
+            `SELECT * FROM account WHERE id = ?`,
             [id]
         )
             .then(results => {
-                if (!id || results[0][`isAccountExist(${id})`] === 0)
+                if (!id || results.length === 0)
                     throw  Error('invalid id')
                 else {
                     if (editedWorker.role !== undefined) {
                         let query = ''
-                        if (editedWorker.role === 'Collector')
+                        if (editedWorker.role === 'collector')
                             query = `UPDATE worker W SET W.fCollector = 1, W.fJanitor = 0 WHERE W.id = ${id}`
                         else
                             query = `UPDATE worker W SET W.fCollector = 0, W.fJanitor = 1 WHERE W.id = ${id}`
 
                         this.query(query)
-                            .catch(() => callback(400, false, 'Something wrong happened, please try again'))
+                            .catch((error) => {
+                                console.log(error)
+                                callback(400, false, 'Something wrong happened, please try again')
+                            })
                     }
                     if (editedWorker.email !== undefined) {
                         let query = ''
                         query = `UPDATE account A SET A.email = '${editedWorker.email}' WHERE A.id = ${id}`
                         this.query(query)
-                            .catch(() => callback(400, false, 'Something wrong happened, please try again'))
+                            .catch((error) => {
+                                console.log(error)
+                                callback(400, false, 'Something wrong happened, please try again')
+                            })
                     }
                     if (editedWorker.name !== undefined) {
                         let query = ''
                         query = `UPDATE account A SET A.name = '${editedWorker.name}' WHERE A.id = ${id}`
                         this.query(query)
-                            .catch(() => callback(400, false, 'Something wrong happened, please try again'))
+                            .catch((error) => {
+                                console.log(error)
+                                callback(400, false, 'Something wrong happened, please try again')
+                            })
                     }
                     if (editedWorker.phone !== undefined) {
                         let query = ''
                         query = `UPDATE account A SET A.phone = '${editedWorker.phone}' WHERE A.id = ${id}`
                         this.query(query)
-                            .catch(() => callback(400, false, 'Something wrong happened, please try again'))
+                            .catch((error) => {
+                                console.log(error)
+                                callback(400, false, 'Something wrong happened, please try again')
+                            })
                     }
 
                     callback(200, true, 'update success')
@@ -155,11 +170,11 @@ class WorkerModel extends Model {
 
     delete(id, callback) {
         this.query(
-            `SELECT isAccountExist(?)`,
+            `SELECT * FROM account WHERE id = ?`,
             [id]
         )
             .then(results => {
-                if (results[0][`isAccountExist(${id})`] === 0)
+                if (results.length === 0)
                     throw Error('invalid id')
                 else
                     return this.query(

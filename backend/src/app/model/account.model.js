@@ -42,7 +42,7 @@ class AccountModel extends Model {
                             role: 'back officer'
                         },
                         process.env.ACCESS_TOKEN_SECRET,
-                        { expiresIn: '10m' }
+                        { expiresIn: '1d' }
                     )
                     refreshToken = jwt.sign(
                         {
@@ -61,7 +61,7 @@ class AccountModel extends Model {
                             role: 'worker'
                         },
                         process.env.ACCESS_TOKEN_SECRET,
-                        { expiresIn: '10m' }
+                        { expiresIn: '1d' }
                     )
                     refreshToken = jwt.sign(
                         {
@@ -82,9 +82,9 @@ class AccountModel extends Model {
                     .catch(() => callback(400, false, 'something were wrong, please try again'))
             })
             .catch(error => {
-                if (error.message === 'email doesn\'t exist')
+                if (error?.message === 'email doesn\'t exist')
                     callback(401, false, error.message)
-                else if (error.message === 'password is not correct')
+                else if (error?.message === 'password is not correct')
                     callback(401, false, error.message)
                 else
                     callback(400, false, 'something were wrong, please try again')
@@ -115,7 +115,7 @@ class AccountModel extends Model {
                                         role: decoded.role
                                     },
                                     process.env.ACCESS_TOKEN_SECRET,
-                                    { expiresIn: '10m' }
+                                    { expiresIn: '1d' }
                                 )
 
                                 callback(200, true, 'create new access token success', accessToken)

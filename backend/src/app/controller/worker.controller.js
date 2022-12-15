@@ -19,10 +19,10 @@ class WorkerController {
         })
     }
 
-    getIdByEmail(req, res) {
+    getInfoByEmail(req, res) {
         let email = req.body.email
-        workerModel.getIdByEmail(email, (status, id, message) => {
-            workerView.getIdByEmail(res, status, id, message)
+        workerModel.getInfoByEmail(email, (status, worker, message) => {
+            workerView.getInfoByEmail(res, status, worker, message)
         })
     }
 
